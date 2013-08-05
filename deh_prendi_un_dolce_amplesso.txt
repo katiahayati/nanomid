@@ -2,9 +2,18 @@ header:
 time: 6 8
 key:
 instruments: 68 68 0 0
+# oboe, grand piano
 tempo: 5.=100
 
 Sesto:
+# format: duration note value octave
+# default octave = 4 (middle C octave)
+# r = rest
+# 5 = quarter note, 4 = eighth, 3 = sixteenth, 6 = half, etc
+# add a dot after the value to dot the note, 5. = quarter note
+# 5.+4 = tied dotted quarter and eighth
+# whitespace is ignored
+# you are reading comments, which are also ignored
 5r 4r 5r 4g
 5e 4g 5c5 4d5
 5e5 4d5 5c5 4c5
@@ -52,6 +61,8 @@ Annio:
 5.c5
 
 Piano:
+# chords are denoted with ;
+# if a chord part consists of several notes separate them with a comma
 4c 4g3 4e;4c 4e;4c 4g3 4g;4e
 5e;5c 4g;4e 5c5;5e 4d5;4f
 5e5;5g 4d5;4f 5c5;5e 4c5;4e
