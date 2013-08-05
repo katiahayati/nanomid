@@ -1,0 +1,104 @@
+header:
+time: 6 8
+key:
+instruments: 68 68 0 0
+tempo: 5.=100
+
+Sesto:
+5r 4r 5r 4g
+5e 4g 5c5 4d5
+5e5 4d5 5c5 4c5
+5f5 4e5 5d5 4c5
+5.b 5r 4d5
+5e5 4d5 5c5 4b
+5a 4c#5 5d5 4e5
+4.f5 3e5 4d5 4c5 4d5 4b
+5c5
+4r 5r 4g
+5b 4r 5r 4g
+4d5 4b 4r 5r 4g
+5.f5 3f5 3e5 4d5 4e5 
+5.d5 5r 4d5
+5e5 4d5 5c5 4b
+5a 4c#5 5d5 4e5 
+4.f5 3e5 4d5 4c5 4d5 4b
+5.+3e5 3g5 3f5 3e5 3d5 3c5
+5.d5 5.b
+5.+3e5 3g5 3f5 3e5 3d5 3c5
+5.f5 5.d5
+5c5 4r 5r 4r
+
+Annio:
+5r 4r 5r 4e
+5c 4e 5e 4f
+5g 4f 5e 4e
+5a 4g 5f 4e
+5.d 5r 4g
+5c5 4b 5a 4g
+5f 4e 5f 4g
+4.a 3g 4f 4e 4f 4d
+5e 4r 5r 4r
+5r 4g 5c5 4r
+5r 4g 4e5 4c5 4g
+5.d5 3d5 3c5 4b 4c5 
+5.b 5r 4g
+5c5 4b 5a 4g
+5f 4e 5f 4g
+4.a 3g 4f 4e 4f 4d
+5.+3c5 3b 3a 3g 3f 3e
+5.f 5.d
+5.+3c5 3b 3a 3g 3f 3e
+5.d5 5.b
+5.c5
+
+Piano:
+4c 4g3 4e;4c 4e;4c 4g3 4g;4e
+5e;5c 4g;4e 5c5;5e 4d5;4f
+5e5;5g 4d5;4f 5c5;5e 4c5;4e
+5f5;5a 4e5;4g 5d5;5f 4c5;4e
+4b;4d 4g5;4b 4g5;4b 4g5;4b 4r 4d5;4g
+5e5;5c5 4d5;4b 5c5;5a 4b;4g
+5a;5f 4c#5;4e 5d5;5f 4e5;4g
+4.f#5;4.a;4.f 3e5;3g 4d5;4f 4c5;4e 4d5;4f 4b;4d
+4c5;4e 4c5;4e 4e5;4g 5c5;5e 4r
+4r 4b;4g;4d 4r 4r 4c5;4g;4e
+4r 4d5;4g;4e 4r 4r 4e5;4g;4e 4r
+5.f5;5.d5;5.g 3f5;3d5 3e5;3c5 4d5;4b 4e5;4c5
+4d5;4b 4d5;4b;4g 4d5;4b;4g 5d5;5b;5g 4d5;4g
+5e5;5c5 4d5;4b 5c5;5a 4b;4g
+5a;5f 4c#5;4e 5d5;5f 4e5;4g
+4.f5;4.a;4.f 3e5;3g 3d5;3f 4c5;4e 4d5;4f 4b;4d
+5.+3e5;5.+3c5;5.+3e 3g5;3b 3f5;3a 3e5;3g 3d5;3f 3c5;3e
+4r 4d5;4f 4d5;4f 4r 4b;4d 4b;4d
+5.+3e5;5.+3c5;5.+3e 3g5;3b 3f5;3a 3e5;3g 3d5;3f 3c5;3e
+4r 4a5;4f5;4a 4a5;4d5;4a 4r 4b5;4d5;4b 4b5;4g5;4b
+4.c6;4.e5;4.c5 3e6 3d6 3c6 3b5 3c6 3d6 3g5 3a5 3b5
+4.c6 3b5 3a5 3g5 3f5 3e5 3d5 3c5 3b 3d5
+3c5 3b 3a 3g 3f 3e 3d 3e 3f 3d 3b3 3d
+4c 4c 4e 4c
+
+Piano:
+5.c3;5.c2 5.c3;5.c2
+6.+6.+5c3;6.+6.+5c2 4c3;4c2 5b3;5b2 4c3;4c2
+4g3;4g2 4d;4g3 4d;4g3 4d;4g3 4r 4r
+4r 4e;4c 4d;4g3 4r 4c;4a3 4b3;4e3
+4r 4a3;4f3 4c#;4a3 4r 4d;4f3 4e;4e3
+5d3 4f3 5g3 4g2
+4c3 4c;4e3;4c3 4c;4e3;4c3 5c;5e3;5c3 4r
+4r 4f3 4r 4r 4e3 4r
+4r 4b2 4r 4r 4c3 4r
+5.g3;5.g2 4e;4c 4d;4g3 4e;4c
+4d;4g3 4g3;4g2 4g3;4g2 4g3;4g2 4r 4r
+4r 4e;4c 4d;4g3 4r 4c;4a3 4b3;4e3
+4r 4a3;4f3 4c#;4a3 4r 4d;4f3 4e;4e3
+4.d3 3e3 4f3 5.g3
+4c3 4e3 4g3 4c 4r 4r
+4f3 4r 4r 4g3 4r 4r
+4c3 4e3 4g3 4c 4r 4r
+4f3;4f2 4r 4r 4g3;4g2 4r 4r
+3g3;3e3;3c3 3c 3g3;3e3;3c3 3c 3g3;3e3;3c3 3c 
+3g3;3f3;3c3 3d 3g3;3f3;3c3 3d 3g3;3f3;3c3 3d
+3g3;3e3;3c3 3c 3g3;3e3;3c3 3c 3g3;3e3;3c3 3c 3g3;3f3;3c3 3d 3g3;3f3;3c3 3d 3g3;3f3;3c3 3d
+3g3;3e3;3c3 3c 3g3;3e3;3c3 3c 3g3;3e3;3c3 3c 
+3g3;3f3;3c3 3b3 3g3;3f3;3c3 3b3 3g3;3f3;3c3 3b3
+4g3;4e3;4c3 4e3;4c3;4c2 4g3;4c3;4c2 4e3;4c3;4c2

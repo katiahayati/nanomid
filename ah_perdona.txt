@@ -1,0 +1,113 @@
+header:
+time: 2 4
+key: 3#
+instruments: 68 68
+tempo: 5=50
+
+Servilia:
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+4r 4r 4c5 4e5
+4.a 2b 2c5 3e5 3d5 3c5 3b
+4a 4g 4a 4c5
+4.f 3g 3a 3b 3c5 3d5
+4c5 4b 4c5 4e5
+4.a 2b 2c5 3e5 3d5 3c5 3b
+4a 4g 4e5 4e5
+66e5 66c5 66a 66f5 66d5 66b 4a 2.b 3c5
+4c5 4d5 4d5 4c5
+3f5 3d5 3c5 3b 3b 3a 3a 3g 5a 5r
+6r
+6r
+6r
+6r
+6r
+5r 4.e5 3e5
+3e5 4g 3e5 3e5 4a 3e5
+3d5 3c5 4b 3g5 3e5 3e5 3b
+4.b 3g 3a 3g 3a 3b
+4a 4g 3g5 3e5 3e5 3b
+4.b 3g 3a 3g 3a 3f
+5e 4r 3d#5 3d#5
+3e5 3b 4b 3r 3d#5 3d#5 3d#5
+3e5 3b 4b 4r 3d#5 3d#5
+3e5 3b 3e5 3g5 4.a5 3d#5
+3f5 4e5 3d5 4c5 4e5
+4.a 2b 2c5 3e5 3d5 3c5 3b
+4a 4g 4a 4c5
+4.f 3g 3a 3b 3c5 3d5
+4c5 4b 4c5 4e5
+4.a5 3g5 3g5 3f5 3e5 3d5
+4c5 4b 4e5 4e5
+66e5 66c5 66a5 66a5 66f5 66d5 4c5 3.b 2c5
+4e5 4d5 4.d5 3d5
+3d5 3b 3b 3e5 4.e5 3e5
+2f5 2e5 2d5 2c5 4c5 5r
+5r 4c5 4d5 
+5b 5r
+5r 4d5 4e5
+5c5 5r
+4r 3.r 2f5 4c5 4b
+5c5 5r
+4r 3.r 2f5 4c5 4b 
+5a 5r
+
+Annio:
+5r 4c5 4e5
+4.a 2b 2c5 3e5 3d5 3c5 3b
+4a 4g 4a 4c5
+4.f 3g 3a 3b 3c5 3d5
+4c5 4b 4c5 4e5
+4.a 2b 2c5 3e5 3d5 3c5 3b
+4a 4g 4e5 4e5
+66e5 66c5 66a 66f5 66d5 66b 4a 2.b 3c5
+4c5 4d5 4d5 4c5
+3f5 3d5 3c5 3b 3b 3a 3a 3g 4a 4r 4r 4r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+6r
+5r 4.a 3e
+4.b 3e 4.c5 2e5 2d5
+4c5 4b 5r 
+6r 6r 6r
+5r 3e5 3b 3b 3g
+4.g 3e 3f 3e 3f 3g
+4f 4e 3e5 3b 3b 3g
+4.g 3e 3f 3e 3f 3d#
+5e 4r 3a 3a 3g 3b 4g 3r 3a 3a 3a
+3g 3b 4g 4r 3a 3a
+3g 3b 3b 3e5 4.d#5 3a
+3a 4.g 4a 4g
+4f 4c 4b3 4d 4e 4d 4c 4a3
+4d 4b3 4c 4a3
+4e 4e 4a 4b
+4.c5 3e5 3e5 3d5 3c5 3b
+4a 4g 4a 4d5
+66c5 66a 66c5 66f5 66d5 66b 4a 4g
+4a 4r 4r 3a 3a
+3b 3g 4g 4r 3d5 3d5
+2d5 2c5 2b 2a 4a 5r
+5r 4a 4d 
+5e 5r
+5r 4b 4e
+5f 5r
+4r 3.r 2a 4a 4g 
+5a 5r 
+4r 3.r 2d5 4a 4g 
+5a 5r
