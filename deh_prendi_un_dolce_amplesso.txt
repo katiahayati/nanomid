@@ -97,7 +97,7 @@ Piano:
 5d3 4f3 5g3 4g2
 4c3 4c;4e3;4c3 4c;4e3;4c3 5c;5e3;5c3 4r
 4r 4f3 4r 4r 4e3 4r
-4r 4b2 4r 4r 4c3 4r
+4b2 4r 4r 4c3 4r
 5.g3;5.g2 4e;4c 4d;4g3 4e;4c
 4d;4g3 4g3;4g2 4g3;4g2 4g3;4g2 4r 4r
 4r 4e;4c 4d;4g3 4r 4c;4a3 4b3;4e3
