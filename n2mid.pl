@@ -32,8 +32,8 @@ my $fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
 my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
 my $obj = SM->new($fn);
 
-# FIXME: what is this number and what should it be?
-my $quarter_ticks = 96;
+# divisible by 2, 3, 4, 6, 8, 12, 16, 32, 64
+my $quarter_ticks = 192;
 
 my $key = $obj->{header_data}->{key};
 my @instruments = (defined $obj->{header_data}->{instruments}) ?
