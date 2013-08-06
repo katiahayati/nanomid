@@ -3,7 +3,13 @@ use strict;
 
 package SM;
 
-my $note_re = qr/((\d+\.?)(\+\d+\.?)*)([a-zA-Z][b\#N]?\d?)/;
+my $note_re = qr/((\d+\.?)    # duration
+                 (\+\d+\.?)*) # possible tied duration (arbitrarily many ties)
+                 ([a-zA-Z]    # note value
+                  [b\#N]?     # sharp or flat or natural
+                  \d?         # octave (optional)
+                 )
+                /x;
 
 sub new {
     my ($class, $fn) = @_;
@@ -12,32 +18,6 @@ sub new {
 
     bless $self, $class;
 }
-
-=pod
-sub explode_tracks {
-    my ($self) = @_;
-    
-    my @tracks = @{$self->{tracks}};
-    TRACK: foreach my $track (@tracks) {
-	my @notes = @{$track->{notes}};
-	my $max_chord_size = 1;
-	foreach my $note (@notes) {
-	    if (defined $note->{chord}) {
-		my $current_chord_size = scalar @{$note->{chord}};
-		if ($current_chord_size > $max_chord_size) {
-		    $max_chord_size = $current_chord_size;
-		}
-	    }
-	}
-	next unless $max_chord_size > 1;
-
-	my $orig_name = $track->{name};
-	
-
-    }
-
-}
-=cut
 
 sub parse_file {
     my ($fn) = @_;
@@ -49,17 +29,21 @@ sub parse_file {
     PARAGRAPH: while (my $paragraph = <IN>) {
 	chomp $paragraph;
 	my @lines = split "\n", $paragraph;
+	next PARAGRAPH unless @lines;
 	my $title;
-	while ($_ = shift @lines) {
+	# title becomes first non-blank, non-comment line
+	FIND_TITLE: while (@lines and !$title) {
+	    my $line = shift @lines;
+
+	    # ignore blank lines
+	    next unless $line;
 	    # ignore comments
-	    if (/^\s*#/) {
+	    if ($line =~ /^\s*#/) {
 		next;
 	    }
-	    if (!$title) {
-		$title = $_;
-		$title =~ s/\:$//;
-		last;
-	    }
+
+	    $title = $line;
+	    $title =~ s/\:$//;
 	}
 	if (! $title) {
 	    die "need a header in each paragraph";
@@ -69,7 +53,6 @@ sub parse_file {
 
 	# deal with header data
 	if ($title eq "header") {
-	    # worry about header stuff later
 	    my $header_data = {};
 	    foreach (@lines) {
 		my ($key, $val) = split /\:\s*/;
@@ -88,12 +71,8 @@ sub parse_file {
 	    next if (/^\s*\#/);
 	    my @note_specs = split /\s+/;
 	    foreach my $ns (@note_specs) {
-		if ($ns eq "em") {
-		    # empty measure
-		    # figure duration out later
-		    push @notes, { duration => "measure",
-				   note => "r" };
-		} elsif ($ns =~ /^$note_re$/) {
+		# single note
+		if ($ns =~ /^$note_re$/) {
 		    # 5.G#3 = dotted quarter G# 3
 		    # 4gN = eigth g4 natural
 		    # 6g3N3 = half g3 natural
@@ -102,7 +81,9 @@ sub parse_file {
 		    my $note = $4;
 		    push @notes, { chord => [ [ { duration => $duration,
 						note => $note } ] ] };
-		} elsif ($ns =~ /^$note_re(,$note_re)*(;$note_re(,$note_re)*)+$/) {
+		}
+		# chord
+		elsif ($ns =~ /^$note_re(,$note_re)*(;$note_re(,$note_re)*)+$/) {
 		    # { duration => $duration,
 		    #   chord_parts => [ [ { duration => 4, note => .. } ],
                     #                    [ { duration => 5, note => .. },
