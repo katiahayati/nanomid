@@ -9,10 +9,10 @@ You can also enter in piano parts if they are relatively simple and you are pati
 
 You'll need Perl and the MIDI CPAN module:
 
-$ sudo perl -MCPAN -e 'install MIDI'
+	$ sudo perl -MCPAN -e 'install MIDI'
 
 Then:
 
-$ perl n2mid.pl <text file with your music> <output midi file>
+	$ perl n2mid.pl [text file with your music] [output midi file]
 
 Look at the text files in the repo for some examples.
