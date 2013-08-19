@@ -56,7 +56,7 @@ sub get_note_in_key {
 
 
 sub get_note_number {
-    my ($value) = @_;
+    my ($value, $default_octave) = @_;
 
     my $note; my $modifier; my $octave;
     if ($value =~ /^([a-zA-Z])([\#bN]?)(\d?)/) {
@@ -73,7 +73,7 @@ sub get_note_number {
     }
 
     if (not $octave) {
-	$octave = 4;
+	$octave = $default_octave;
     }
 
     $octave++;

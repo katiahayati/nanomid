@@ -38,6 +38,8 @@ my $quarter_ticks = 192;
 my $key = $obj->{header_data}->{key};
 my @instruments = (defined $obj->{header_data}->{instruments}) ?
     split " ", $obj->{header_data}->{instruments} : ();
+my @default_octaves = (defined $obj->{header_data}->{default_octaves}) ?
+    split " ", $obj->{header_data}->{default_octaves} : ();
 my $tempo = 500_000; # quarter = 120
 if ($obj->{header_data}->{tempo}) {
     # 5=120
@@ -53,6 +55,7 @@ my $channel = 0;
 my $previous_track_name;
 foreach my $data_track (@{$obj->{tracks}}) {
     my $instrument = (@instruments) ? shift @instruments : 68; # 68 = oboe
+    my $default_octave = (@default_octaves) ? shift @default_octaves : 4;
     my $track_name = $data_track->{name};
     # keep all tracks that are called the same thing on the same channel
     # so if you have 2 piano tracks they will be on 1 MIDI channel
@@ -140,7 +143,7 @@ foreach my $data_track (@{$obj->{tracks}}) {
                 # what about double flats, double sharps (prob not in score)
                 if ($value ne "r") {
                     $value = get_note_in_key($value, $key);
-                    my $number = get_note_number($value);
+                    my $number = get_note_number($value, $default_octave);
             
                     if (not defined $number) {
                         $number = 0;
