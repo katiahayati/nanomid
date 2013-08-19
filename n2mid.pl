@@ -111,20 +111,21 @@ foreach my $data_track (@{$obj->{tracks}}) {
             }
             # grab the list of events for this track
             my $events = $all_events[$counter];
-            # what time are we at on this track
-            # the problem is: what if for 3 bars we just have single notes
-            # then after 3 bars there's a chord with 2 notes
-            # that bottom note needs to happen after a delay of 3 bars
-            # but when we go add to the top track, that delay should just be 0
-            # so we need to keep track of the overall current time, as well as
-            # the current time on this track
-            $delay = $current_time - $event_current_time[$counter];
 
             # ok, now we actually get to add some notes
             my $chord_part = $chord_obj->{chord}->[$which_chord];
 
             my $debug = (@{$chord_part} >= 2);
             foreach my $note_obj (@{$chord_part}) {
+		# what time are we at on this track
+		# the problem is: what if for 3 bars we just have single notes
+		# then after 3 bars there's a chord with 2 notes
+		# that bottom note needs to happen after a delay of 3 bars
+		# but when we go add to the top track, that delay should just be 0
+		# so we need to keep track of the overall current time, as well as
+		# the current time on this track
+		$delay = $current_time - $event_current_time[$counter];
+
                 my $duration = $note_obj->{duration};
                 my $value = $note_obj->{note};
 
