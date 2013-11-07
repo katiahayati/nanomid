@@ -97,6 +97,9 @@ foreach my $data_track (@{$obj->{tracks}}) {
         # counter keeps track of which track we're adding notes to
         my $counter = 0;
         # go through the notes in the chord in the order specified
+
+	# check that each part of the chord has the same duration
+	my $previous_end_time;
         foreach my $which_chord (@order) {
             $current_time = $chord_start_time;
             # are we starting a new track?
@@ -167,6 +170,11 @@ foreach my $data_track (@{$obj->{tracks}}) {
                     $current_time += $mult*$quarter_ticks;
                 }
             }
+	    if ($previous_end_time and $current_time ne $previous_end_time) {
+		warn "In $track_name, the parts of chord ", Dumper($chord_obj), " don't add up to the same time value";
+	    }
+
+	    $previous_end_time = $current_time;
             $counter++;
         }
     }
@@ -178,16 +186,22 @@ foreach my $data_track (@{$obj->{tracks}}) {
 
 
 my $time_sig = $obj->{header_data}->{time};
-my $time_event;
+my ($numerator, $denominator) = split " ", $time_sig;
 # heh, well, that's all there is in Die Walkure, pretty much!  anyway, MIDI
 # doesn't really care about time signatures, this is mostly for esthetics if you
 # import the file in a music editor.
 # TODO: do this mathematically
-if ($time_sig eq "3 4") {
-    $time_event = [ 'time_signature', 0, 3, 2, 8, 8];
-} elsif ($time_sig eq "9 8") {
-    $time_event = [ 'time_signature', 0, 9, 3, 18, 8];
-}
+# 1 MIDI quarter = 24 clocks
+# 0 numerator log_2(denominator) mult{denominator}* 8
+my $time_event = [ 'time_signature', 0, $numerator, 
+		   int(log($denominator)/log(2)),
+		   36, # not sure this one matters
+		   8 ];
+# if ($time_sig eq "3 4") {
+#     $time_event = [ 'time_signature', 0, 3, 2, 36, 8];
+# } elsif ($time_sig eq "9 8") {
+#     $time_event = [ 'time_signature', 0, 9, 3, 36, 8];
+# }
 my $dummy_track = MIDI::Track->new( { events => [ 
                       [ 'track_name', 0, 'title' ],
                       $time_event ]});

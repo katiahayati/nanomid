@@ -6,7 +6,7 @@ use MIDI;
 our @EXPORT = qw(all);
 
 my %mods = (
- "#" => [ qw(F C G A D E) ],
+ "#" => [ qw(F C G D A E) ],
  "b" => [ qw(B E A D G C) ],
 );
 
@@ -31,7 +31,7 @@ sub get_note_in_key {
     my ($value, $key) = @_;
     
     my $note; my $modifier; my $octave;
-    if ($value =~ /([a-zA-Z])([\#bN]?)(\d?)/) {
+    if ($value =~ /([a-zA-Z])([\#bsN]?)(\d?)/i) {
 	$note = $1;
 	$modifier = $2;
 	$octave = $3;
@@ -59,7 +59,7 @@ sub get_note_number {
     my ($value, $default_octave) = @_;
 
     my $note; my $modifier; my $octave;
-    if ($value =~ /^([a-zA-Z])([\#bN]?)(\d?)/) {
+    if ($value =~ /^([a-zA-Z])([\#bsN]?)(\d?)/i) {
 	$note = $1;
 	$modifier = $2;
 	$octave = $3;
@@ -68,7 +68,7 @@ sub get_note_number {
 	return $value;
     } 
 
-    if ($modifier eq "N") {
+    if (lc($modifier) eq "n") {
 	$modifier = "";
     }
 
@@ -81,9 +81,9 @@ sub get_note_number {
     my $lookup_key = uc($note) . $octave;
     my $number = $MIDI::note2number{$lookup_key};
 
-    if ($modifier eq "#") {
+    if (($modifier eq "#") or (lc($modifier) eq "s")) {
 	$number++;
-    } elsif ($modifier eq "b") {
+    } elsif (lc($modifier) eq "b") {
 	$number--;
     }
     return $number;

@@ -6,10 +6,10 @@ package SM;
 my $note_re = qr/((\d+\.?)    # duration
                  (\+\d+\.?)*) # possible tied duration (arbitrarily many ties)
                  ([a-zA-Z]    # note value
-                  [b\#N]?     # sharp or flat or natural
+                  [b\#sN]?     # sharp or flat or natural
                   \d?         # octave (optional)
                  )
-                /x;
+                /xi;
 
 sub new {
     my ($class, $fn) = @_;
@@ -17,6 +17,12 @@ sub new {
     my $self = parse_file($fn);
 
     bless $self, $class;
+}
+
+sub match {
+    my ($str) = @_;
+    
+    return ($str =~ /^$note_re$/) ? 1 : 0;
 }
 
 sub parse_file {
