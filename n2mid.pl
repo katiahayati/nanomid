@@ -6,8 +6,6 @@ use Note;
 use MIDI;
 
 # or could use MATH
-# what about double dotting
-# what about triplets
 my %duration_to_mult = (
     5 => 1,
     "5." => 1.5,
@@ -187,16 +185,13 @@ foreach my $data_track (@{$obj->{tracks}}) {
 
 my $time_sig = $obj->{header_data}->{time};
 my ($numerator, $denominator) = split " ", $time_sig;
-# heh, well, that's all there is in Die Walkure, pretty much!  anyway, MIDI
-# doesn't really care about time signatures, this is mostly for esthetics if you
-# import the file in a music editor.
-# TODO: do this mathematically
 # 1 MIDI quarter = 24 clocks
 # 0 numerator log_2(denominator) mult{denominator}* 8
 my $time_event = [ 'time_signature', 0, $numerator, 
 		   int(log($denominator)/log(2)),
 		   36, # not sure this one matters
 		   8 ];
+# examples for posterity
 # if ($time_sig eq "3 4") {
 #     $time_event = [ 'time_signature', 0, 3, 2, 36, 8];
 # } elsif ($time_sig eq "9 8") {
