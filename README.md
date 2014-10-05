@@ -3,9 +3,7 @@ nanomid
 
 A nano text-based musical language with a MIDI converter.
 
-Most useful for entering one or more vocal lines to learn ensemble music.  Simple, yet powerful enough to support generating MIDIs for all the Valkyrie & Wotan parts in Act III.1/2 of Wagner's _Die Walküre_.
-
-You can also enter in piano parts if they are relatively simple and you are patient.
+Most useful for entering one or more vocal lines, optionally with piano, to learn ensemble music.  Simple, yet powerful enough to support generating MIDIs for all the Valkyrie & Wotan parts in Act III.1/2 of Wagner's _Die Walküre_.
 
 You'll need Perl and the MIDI CPAN module:
 
