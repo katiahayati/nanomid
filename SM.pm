@@ -19,12 +19,6 @@ sub new {
     bless $self, $class;
 }
 
-sub match {
-    my ($str) = @_;
-    
-    return ($str =~ /^$note_re$/) ? 1 : 0;
-}
-
 sub parse_file {
     my ($fn) = @_;
 
