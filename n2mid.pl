@@ -6,8 +6,6 @@ use Note;
 use MIDI;
 
 # or could use MATH
-# what about double dotting
-# what about triplets
 my %duration_to_mult = (
     5 => 1,
     "5." => 1.5,
@@ -17,6 +15,7 @@ my %duration_to_mult = (
     "3." => 0.25 + 0.125,
     2 => 0.125,
     "2." => 0.125*1.5,
+    1 => 0.0625,
     6 => 2,
     "6." => 3,
     7 => 4,
@@ -45,7 +44,7 @@ if ($obj->{header_data}->{tempo}) {
     # 5=120
     # 6.=32
     my ($which_note, $bpm) = split "=", $obj->{header_data}->{tempo};
-    $tempo = 60 / $bpm * 1_000_000  * $duration_to_mult{$which_note};
+    $tempo = 60 / $bpm * 1_000_000  * (1 / $duration_to_mult{$which_note});
 }
 
 my @tracks;
@@ -66,69 +65,25 @@ foreach my $data_track (@{$obj->{tracks}}) {
     my @all_events;
     my @event_current_time;
 
-    my $delay = 0;
     my $current_time = 0;
+    my $previous_chord_end_time = 0;
 
-    # for each chord, for each note in the chord, we have to place a note at
-    # the right time offset in the MIDI stream.
-    # for each part, we're going to create one MIDI track per notes in a chord
-    # so if the largest chord has 4 notes in it, there will be 4 tracks
-    # if 3 notes, 3 tracks
-    # if this is just a vocal line, this reduces to 1 track for 1 channel
+    push @all_events,  (
+        [ 'track_name', 0, $track_name ],
+        [ 'patch_change', 0, $channel, $instrument ], 
+    );
+
+    # within each chord, calculate absolute time for each note,
+    # and then convert to delta times at the end
     foreach my $chord_obj (@{$data_track->{notes}}) {
+        my @chord_events;
         my $chord_start_time = $current_time;
-        my $num_parts = scalar @{$chord_obj->{chord}};
-        my @order;
-        # for ease of reading an imported MIDI file in another program, try to keep
-        # the top note on the top track, the middle note in the middle track, and
-        # the bottom note on the bottom track
-        if ($num_parts >= 1) {
-            push @order, 0;
-        }
-        if ($num_parts >= 2) {
-            push @order, -1;
-        }
-        if ($num_parts >= 3) {
-            push @order, 1..$num_parts-1-1;
-        }
+        my $chord_end_time;
 
-        # @all_events is an array of array
-        # each inner array is a set of events corresponding to a track
-        # counter keeps track of which track we're adding notes to
-        my $counter = 0;
-        # go through the notes in the chord in the order specified
+        foreach my $chord_part (@{$chord_obj->{chord}}) {
+            my $chord_current_time = $chord_start_time;
 
-	# check that each part of the chord has the same duration
-	my $previous_end_time;
-        foreach my $which_chord (@order) {
-            $current_time = $chord_start_time;
-            # are we starting a new track?
-            if (scalar @all_events < $counter + 1) {
-                @{$all_events[$counter]} = (
-                    [ 'set_tempo', 0, $tempo ],
-                    [ 'track_name', 0, $track_name ],
-                    [ 'patch_change', 0, $channel, $instrument ],  # same channel as we are currently on
-                    );
-                # at the beginning of a track we are at time 0
-                $event_current_time[$counter] = 0;
-            }
-            # grab the list of events for this track
-            my $events = $all_events[$counter];
-
-            # ok, now we actually get to add some notes
-            my $chord_part = $chord_obj->{chord}->[$which_chord];
-
-            my $debug = (@{$chord_part} >= 2);
             foreach my $note_obj (@{$chord_part}) {
-		# what time are we at on this track
-		# the problem is: what if for 3 bars we just have single notes
-		# then after 3 bars there's a chord with 2 notes
-		# that bottom note needs to happen after a delay of 3 bars
-		# but when we go add to the top track, that delay should just be 0
-		# so we need to keep track of the overall current time, as well as
-		# the current time on this track
-		$delay = $current_time - $event_current_time[$counter];
-
                 my $duration = $note_obj->{duration};
                 my $value = $note_obj->{note};
 
@@ -154,58 +109,74 @@ foreach my $data_track (@{$obj->{tracks}}) {
                         print STDERR $note_obj->{value}, "\t", $value, "\n";
                     }
 
-                    # a rest is encoded as a gap between the end time of the
-                    # previous note and the start time of this note
-                    # that's $delay, and it's incremented only when the previous note
-                    # is a rest
-                    push @$events, [ 'note_on', $delay, $channel, $number, 127 ];
-                    push @$events, [ 'note_off', $mult*$quarter_ticks, $channel,
-                                     $number, 127 ];
-                    $current_time += $mult*$quarter_ticks;
-                    $event_current_time[$counter] = $current_time;
+                    # absolute time
+                    push @chord_events, 
+                    [ 'note_on', 
+                      $chord_current_time, 
+                      $channel, $number, 127 ];
+                    push @chord_events, 
+                    [ 'note_off', 
+                      $chord_current_time + $mult*$quarter_ticks, $channel,
+                      $number, 127 ];
+                    $chord_current_time += $mult*$quarter_ticks;
                 } else {
                     # this is a rest
-                    # update current time but not event current time
-                    # so the delay will be the length of this rest
-                    $current_time += $mult*$quarter_ticks;
+                    $chord_current_time += $mult*$quarter_ticks;
                 }
             }
-	    if ($previous_end_time and $current_time ne $previous_end_time) {
-		warn "In $track_name, the parts of chord ", Dumper($chord_obj), " don't add up to the same time value";
-	    }
-
-	    $previous_end_time = $current_time;
-            $counter++;
+            # check that all chord parts have the same duration
+            if (defined $chord_end_time and ($chord_current_time !=
+                                             $chord_end_time)) {
+                die "Unequal chord parts " . Dumper($chord_obj);
+            }
+            $chord_end_time = $chord_current_time;
         }
+        # sort all note on and off events by time, and put off before on
+        my @sorted_chord_events = sort { $a->[1] <=> $b->[1] 
+                                             || # off before on
+                                         $a->[0] cmp $b->[0]
+
+        } @chord_events;
+        my $previous_time = $previous_chord_end_time;
+        my @actual_events;
+        # compute delta times
+        for (my $i = 0; $i < @sorted_chord_events; $i++) {
+            my $event = $sorted_chord_events[$i];
+            my $delta_time = $event->[1] - $previous_time;
+            $previous_time = $event->[1];
+            $event->[1] = $delta_time;
+            push @actual_events, $event;
+        }
+        push @all_events, @actual_events;
+        
+        $current_time = $chord_end_time;
+        # if the chord is a rest (single note which is a rest) then we need to
+        # keep $previous_chord_end_time as is to encode the delay at the start
+        # of the next chord
+        if (@chord_events) {
+            $previous_chord_end_time = $chord_end_time;
+        }
+
     }
-    foreach my $event_track (@all_events) {
-        my $track = MIDI::Track->new({ events => $event_track });
-        push @tracks, $track;
-    }
+    my $track = MIDI::Track->new({ events => \@all_events });
+    push @tracks, $track;
 }
 
 
 my $time_sig = $obj->{header_data}->{time};
 my ($numerator, $denominator) = split " ", $time_sig;
-# heh, well, that's all there is in Die Walkure, pretty much!  anyway, MIDI
-# doesn't really care about time signatures, this is mostly for esthetics if you
-# import the file in a music editor.
-# TODO: do this mathematically
 # 1 MIDI quarter = 24 clocks
 # 0 numerator log_2(denominator) mult{denominator}* 8
 my $time_event = [ 'time_signature', 0, $numerator, 
-		   int(log($denominator)/log(2)),
-		   36, # not sure this one matters
-		   8 ];
-# if ($time_sig eq "3 4") {
-#     $time_event = [ 'time_signature', 0, 3, 2, 36, 8];
-# } elsif ($time_sig eq "9 8") {
-#     $time_event = [ 'time_signature', 0, 9, 3, 36, 8];
-# }
-my $dummy_track = MIDI::Track->new( { events => [ 
-                      [ 'track_name', 0, 'title' ],
-                      $time_event ]});
-unshift @tracks, $dummy_track;
+           int(log($denominator)/log(2)),
+           36, # not sure this one matters
+           8 ];
+my $info_track = MIDI::Track->new( { events => [ 
+                                          [ 'track_name', 0, 'title' ],
+                                          $time_event,
+                                          [ 'set_tempo', 0, $tempo ],
+                                          ]});
+unshift @tracks, $info_track;
 
 # format 1 MIDI file (multiple tracks)
 my $opus = MIDI::Opus->new({
