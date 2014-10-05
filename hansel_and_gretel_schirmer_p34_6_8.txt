@@ -1,0 +1,202 @@
+header:
+time: 6 8
+key:
+default_octaves: 4 4 3
+instruments: 68 0 0
+tempo: 5.=66
+
+Mother:
+6.r 6.r 6.r 6.r
+5r 4+4fs5 4fs 4r
+4fs 4cs5 4as 4.e5 3d5 4cs5
+4gn5 4an 4r 5r 4r
+6.r
+4a 4a 4a 4bb 4f5 4r
+4a 4e5 4a 4bb 4f5 4r
+4bn 4bn 4bn 4cn5 4cn5 4g5
+4b 4fs5 4b 4c5 4g5 4r
+5r 4r 5r 4d5
+5eb5 4ab 4an 4d 4d5
+5eb5 4ab 4an 4d 4r
+4d5 4d5 4d5 5d5 4c5
+4bb 4a 4g 4eb5 4d5 4r
+5r 4r 4f5 4f 4r
+6.r
+5r 4f 5.+4eb5
+4r 4a 4c5 4bn 4a
+4en5 4r 4r 5r 4r
+5r 4r 4r 4e5 4r
+4e5 4e 4r 5r 4e
+5a 4a 4b 4e5 4e5
+4e5 4r 4e5 4f5 4r 4f
+4bb 4bb 4f 5c5 4f
+4db5 4f5 4f 5a 4f
+4bb 4bb 4f 4c5 4f5 4f5
+4f5 4f 4r 5r 4r
+5r 4a 4f5 4e5 4d5
+4cs5 4r 4a 4e5 4ds5 4c5
+4cn5 4ab 4c5 5eb5 4c5 
+5eb5 4c5 4eb5 4d5 4c5
+5gb5 4a 5r 4r 
+6.r 6.r 6.r 6.r 6.r
+4gb5 4f 4r 4f 4gb 4f
+4eb5 4.c5 3a 4gb 4f 4r
+5r 4cb5 4cb5 4ab 4cb5
+5ab5 4f5 4d5 4bb 4r 
+6.r
+6.r
+5r 4r 4bb 4r 4r
+4db5 4f 4r 4bb 4db5 4bb
+5f5 4r 5r 4r
+5db5 4r 4g 4bb 4db5
+4.f5 3db5 4bb 5g 4r
+6.r 
+5r 4r 4ds5 4r 4r
+4ds5 4r 3b 3cs5 4ds5 4r 4r
+4ds5 4.ds5 3ds5 4.fs5 3b 4b
+5r 3ds5 3e5 4fs5 4r 4r
+5r 4b 4.b 3b 4b
+5e5 4e5 4fs5 4fs5 4fs5
+5.g5 4r 4e5 4r
+5.+5b5 4b
+5.b 4r 4b 4e5
+5.+4g5 4.fs5 3b
+5e5
+
+Piano RH:
+5.+4.cs5 3d5 4+5.cs5;3r,3b,4.a,3b,3a,3gs
+5.cs5;4.fs,3gs,3fs,3e
+4.d5,3e5,3d5,3cs5;5.d 5.d5;4.b,3cs5,3b,3a
+4.e5,3fs5,3e5,3d5;5.gs 3cs5,3d5,3cs5,3b,3a,3gn;5.e
+#p35
+3fs;3e 3fs;3e 4fs;4e 4fs;4e 4.cs5,3d,3cs5,3b;3fs,3fs,4fs,4fs;3e,3e,4e,4e
+4as,4r,4r;3fs,3fs,4fs,4fs;3e,3e,4e,4e 4.cs5,3d5,3cs5,3b;3fs,3fs,4fs,4fs;3e,3e,4e,4e
+4.gn5;4.e5;4.cs5;4.an 3bb5 3a5 3g5 3fn5 3g5 3fn5 3e5 3d5 3e5
+3d5 3cn5 3bb 3c5 3bb 3a 3g 3a 3g 3f 3e 3d
+4.a 3bb 3a 3g 3f 3e 3d 3e 3f 3g
+4.a 3bb 3a 3g 3f 3e 3f 3g 3a 3bb
+4.bn 3c5 3b 3a 3g 3fs 3e 3fs 3g 3a
+4.b 3c5 3b 3a 3g 3a 3as 3b 3c5 3d5
+5.+4eb5;4.ab,3bb,3ab,3g,3fs,3an
+3d5 3c5 3bb 3a
+5.+4eb5;4.ab,3bb,3ab,3g,3fs,3an 4d5 4d
+3eb 3ab 4eb5 4+3eb5 3d5 3cs5 3cn5 3bb 3an
+5.+5d5,4c5;4.g,3an,3g,3fn,4fn,5eb
+4bb;4d 4a;4cs 4g 4r 4d5;4a;4fs;4d 4en5;4a;4en
+#p36
+3fn5;3eb5;3a;3fn 3fn5;3eb5;3a;3fn 4fn5;4eb5;4a;4fn 4fn5;4eb5;4a;4fn 4.fn5 3en5 3f5 3g5
+4.a5;4.f5 3g5;3eb5 3a5;3f5 3bb5;3g5 4.c6;4.a5 3bb5;3g5 3c6;3a 3d6;3bb5
+4eb6;4c6 4r 4r 5r 4r
+6.r
+4r 4en6;4bn5;4en5 4r 3e 3e 3e 3r 4r
+# gracenote section
+3.r 2gs 4a 4e 3.r 2as;2g 4b;4gs 4e
+3.r 2b;2gs 4c5;4a 4e 3.r 2gn5 4gs5 4e5 
+3.r 2gs5 4a5 4e5 3.r 2as5;2gn5 4b5;4gs5 4e5
+3.r 2b5;2gs5 4c6;4a5 4e5 3.r 2e6 4f6 4f5
+3.r 2a 4bb 4f 3.r 2bn;2gs 4c5;4a 4f
+3.r 2c5;2a 4db5;4bb 4f 3.r 2gs5 4a5 4f5
+3.r 2a5 4bb5 4f5 3.r 2bn5;2gs5 4c6;4a5 4f5
+3.r 2cs6 4d6;4ab5 4f5 4.f5 3en5 4d5
+4.a5,3bb5,3a5,3g;5.cs5 4.f5;4d5,3r 3e5 4d5
+5a5,3g5,3f5;4.cs5,3bs,3cs5,3d5 4.e5 3ds5 3e5 3fs5
+#p37
+5gs5,3gb5,3fb5;4.bs,3bn,3cn5,3db5 3eb5 3fn5 3eb5 3dn5 3c5 3d5
+3eb5 3f5 3eb5 3d5 3c5 3d5 3eb5 3f5 3eb5 3d5  3c5 3eb5
+4.gb5,3ab5,3gb5,3f5,4.eb5,3d5,3eb5,3f5;5.eb5,5.r;5.+4a,4r,4bb
+4.gb5,3ab5,3gb5,3f5,4.eb5,3d5,3eb5,3f5;5.eb5,5.r;5.+4a,4r,4bb
+3gb5,3ab5,3gb5,3f5,3eb5,3f5,3gb5,3ab5,3gb5;3eb5,3r,3r,3r,3r,3r,3eb5,3r,3r;5a,4bb,4.a 3r 2c6 2d6 2eb6 2f6
+4.a5;4.c6;4.eb6;4.g6 3a6;3f6 3g6;3eb6 3f6;3d6 3eb6;3c6 3g6 3d6;3bb5 3f6 3c6;3a5 3eb6
+3bb5;3g5 3d6 3a5;3f5 3c6 3g5;3eb5 3bb5 3f5;3d5 3a5 3eb5;3c5 3g5 3d5;3bb 3f5
+3c5;3a 3eb5 3bb;3g 3d5 3a;3f 3c5 3g;3eb 3bb 3f;3d 3a 3eb;3c 3g
+4gb;3eb,3bb3 4f;3eb,3a3 4gb;3eb,3bb3 4f;3eb,3a3 4gb;3eb,3bb3 4+4f;3eb,3a3,3eb,3a3 
+4gb;3eb,3bb3 4f;3eb,3a3 4gb;3eb,3bb3 4f;3eb,3a3 4gb;3eb,3bb3
+4f;3d,3gs3 4gb;3eb,3a3 4f;3d,3gs3 4gb;3eb,3ab3 4f;3d,3gs3 4gb;3eb,3a3
+4f;3d,3ab3 4gb;3eb,3ab3 4f;3d,3ab3 4gb;3eb,3ab3 4f;3d,3ab3 4gb;3eb,3ab3
+3g;3f;3db 3g;3f 4g;4f 4g;4f 3g;3f 3g;3f 4g;4f 4g;4f
+#p38
+3g;3f 3g;3f 4g;4f 4g;4f 5r 4r
+3g;3f 3g;3f 4g;4f 4g;4f 5r 4r
+4.db5,3eb5,3db5,3c5;3g,3g,4g,4g;3f,3f,4f,4f 4bb 4r 4r
+4.dn5,3eb5,3d5,3c5;3g,3g,4g,4g;3f,3f,4f,4f 4bn;3r,3bn;3g,3g;3f,3f 4b;4g;4f 4b;4g;4f
+4.f5;3db5,3db5,3db5;3bb,3bb,3bb;3g,3g,3g;3f,3f,3f 3g5 3f5 3eb5 3db5 3eb5 3db5 3c5 3bb 3c5
+3bb 3ab 3g 3ab 3g 3f 3eb 3f 3eb 3dn 3eb 3f
+3eb 3d 3eb 3fb 3eb 3d 4eb 4r 4r
+4.ds5 3en5 3ds5 3cs5 3b 3gs 3ds 3gs 3bn 3cs5
+4.ds5 3en5 3ds5 3cs5 3b 3gs 3ds 3gs 3bn 3cs5
+4.fs5 3gs5 3fs5 3e5 3ds5 3b 3fs 3b 3ds5 3e5
+4.fs5 3gs5 3fs5 3e5 3ds5 3b 3fs 3b 3ds5 3e5
+4.b5 3c6 3b5 3a5 3g5 3e5 3b 3e5 3g5 3a5
+#p39
+3b5 3g5 3e5 3fs5 3g5 3a5 3b5 3as5 3b5 3cs6 3d6 3ds6
+3e6 3b5 3cs6 3ds6 3e6 3fs6 3g6 3ds6 3e6 3fs6 3g6 3a6
+5.+5b6;5.+5b5 4r
+6.r
+4r 4e 3.e 2e 4ds 4cs 4ds
+4.e5;3e,3e,3e 3fn5 3e5 3d5
+
+Piano LH:
+6.+6.+6.cs2;5.cs2,5.es2,5fs2,4gs2,5.a2,5b2,4cs3,5.d;5.cs,5.r,5.r,5.r,5.r,5.r
+#p35 after the tie
+6.+4cs2,3r;5e,4fs,5gs,3a,3b,4.cs4 3d4 3cs4 3b 4as 4r 4r
+4.cs4 3d4 3cs4 3b 4as 4r 4r
+3gn4,3gn4,3gn4;3e4,3e4,3e4;3cs4,3cs4,3cs4;4.an 3bb 3a 3g 3fn 3g 3f 3e 3d 3e
+3d 3cn 3bb2 3c 3bb2 3a2 3g2 3a2 3g2 3f2 3e2 3d2
+3cs2 3d2 4a2 4a2 3d2 3f2 4bb2 4bb2
+3cs2 3d2 4a2 4a2 3d2 3f2 4bb2 4bb2
+3ds2 3fs2 4bn2 4bn2 3e2 3g2 4cn 4cn
+3ds2 3fs2 4bn2 4bn2 3e2 3g2 4cn 4cn
+3cn2 3gb2 4eb 4eb 4d2 4gn2 4fs
+3c 3ab 4eb4 4+4eb4,3d4,3c4;4r,5d 3bb 3an
+4.ab,3bb,3ab,3g;5c,4r 3fs,3an,4d4,4d4;5d,4r
+3bb2 3d 3g 3fs 3g 3a 5bb,4a;5.c
+5g;5eb 4r 4r 4d;4d2 4cs;4cs2
+#p36
+4c;4c2 4r 4r 3f4;3eb4 3f4;3eb4 4f4;4eb4 4f4;4eb4 
+3f4;3eb4;3c4 3f4;3eb4;3c4 4f4;4eb4;4c4 4f4;4eb4;4c4  3f4;3eb4;3c4;3a 3f4;3eb4;3c4;3a 4f4;4eb4;4c4;4a 4f4;4eb4;4c4;4a 
+3f4;3eb4;3c4;3a;3f 3f4;3eb4;3c4;3a;3f 4f4;4eb4;4c4;4a;4f 4r 5r 4r 
+6.r
+4r 4bn;4en 4en2 4.en 3f 3e 3d
+4c 4c 3.c 2c 4b2  4a2 4b2
+4a2 4c 4d 4.e 3f 3e 3d
+4a 4e 4c 4b2 4e 4b2
+4a2 4e 4a2 4.f;4.f2 3gb 3f 3eb
+4db 4f 4db 4c 4f 4c
+4bb2 4db 4bb2 4.f;4.f2 3gb 3f 3eb
+4db 4f 4db 4c 4f 4c
+4b2 4f 4b2 4.d,3cs,3d,3e;5.bb2
+5f,4e;4a2,4r,4r 4.d,3cs,3d,3e;5.bb2
+5f;4a2,4r 3e 3d 4.cs,3bs2,3cs,3ds;5.a2
+#p37
+5e;4gs2,4r 3eb 3db 3c,3dn,4eb,4eb;5.ab2
+3c,3d,4eb,4eb;5.g2 3c,3d,4eb,4eb;5.gb2
+3f1 3c2 4f2 4f2
+3c2 3f2 4c 4c
+3f2 3c 4f 4f
+3c 3f 4c4 4c4
+3f 3c4 4f4 4c4;4c 3f2 3c 4f 4c;4c2
+6.+6.+6.f2;6.+6.+6.f1 
+4c 4f2 4c 4f2 4c 4f2
+4c 4f2 4c 4f2 4c 4f2
+4cb 4f 4cb 4f 4cb 4f
+4bb2 4f 4bb2 4f 4bb2 4f
+4bb2 4r 4r 5r 4r
+#p38
+5.r 4.db4 3eb4 3db4 3c4
+4bb 4r 4r 4.db4 3eb4 3db4 3c4
+4bb 4r 4r 4.db4 3eb4 3db4 3c4
+4bn 4r 4r 4.dn4 3eb4 3d4 3c4
+4.db4;4.bb;4.eb 3eb4 3db4 3c4 3bb 3c4 3bb 3ab 3g 3ab
+3g 3f 3eb 3f 3eb 3dn 3eb 3f 3eb 3d 3eb 3f
+3eb 3d 3eb 3fb 3eb 3d 3eb 3fb 3eb 3db 3cb 3bb2
+3gs2 3bn2 3ds 3b2 3ds 3b2 3gs2 3bn2 3ds 3b2 3ds 3b2 
+3gs2 3bn2 3ds 3b2 3ds 3b2 3gs2 3bn2 3ds 3b2 3ds 3b2 
+3fs2 3bn2 3ds 3b2 3ds 3b2 3fs2 3bn2 3ds 3b2 3ds 3b2 
+3fs2 3bn2 3ds 3b2 3ds 3b2 3fs2 3bn2 3ds 3b2 3ds 3b2 
+3e2 3g2 3b2 3g2 3b2 3g2 3e2 3g2 3b2 3g2 3b2 3g2 
+#p39
+3e2 3g2 3b2 3g2 3b2 3g2 3dn2 3fs2 3b2 3fs2 3b2 3fs2
+3cs2 3g2 3e 3g2 3e 3g2 3c2 3g2 3e 3g2 3e 2.g2
+1b1 6.+5.+4b;6.+5.+4g;6.+5.+4e;6.+5.+4b2 4r 4r
+4as;4g;4e;4b2 4r 4r 4an;4f;4b2 4r 4r
+4.e 4fn4 4e4 4d4
