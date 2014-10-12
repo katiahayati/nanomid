@@ -1,0 +1,535 @@
+header:
+time: 4 4
+key: 1#
+default_octaves: 4 4 3
+instruments: 68 0 0
+tempo: 5=94
+
+Dejanira:
+4r 4d 4d 4d 5b 5r
+5r 4r 4b 4b 4gs 4fs 4e
+5a 5r 5r 5+5bb
+4bb 4a 4gs 4gs 5r
+5c5 4c5 4b 4as 4as 5r 
+4as 4as 4cs5 4f 5b 5r
+# oh cruel nessus
+5.f 3f 3f 4cn5 4cn5 5r
+4c5 4c5 4eb5 4d5 5bb 5r
+6r 5r 4ab 3ab 3g
+# am!  Adagio
+CHANGE_TEMPO:5=72
+5eb 5r 5r 4r 4fn
+4ab 4ab 4ab 4g 5g 5r
+#p2
+5r 3r CHANGE_TEMPO:5=104 3g 3g 3g 5c5 4r 4c5
+4c5 4bb 4c5 4g 5ab 4r 4c5
+4c5 4fn 4fn 4eb 5c 5r
+#furioso
+# OR 6r 5r 4e5 3e5 3e5 5a5
+CHANGE_TEMPO:5=92
+6r 5r 4cs5 3b 3a
+5e5 5r 6r
+#chain me, ye furies
+4cs5 4a 4r 4cs5 4cs5 4gs 5r
+4b 4b 4cs5 4gs 5a 4r 4fs
+# that fs not in score but seems like a mistake
+4as 4cs5 4as 4fs 5b 5r
+4r 4b 4e5 4d5 4b 4b 5r
+7r
+#concitato
+CHANGE_TEMPO:5=104
+5e 5r 5g 4r 4b
+5e5 5r 6r 
+5r 4r 4b 4e5 4b 4gs 4e
+#p3
+5c5 5r 6r
+4r 4a 4c5 4a 5f 5r
+6r 5r 4r 4d
+# black tisiphone
+6bb 5r 5bb
+3g 3g 4g 5r 6r
+6r 5r 4e 4f
+#dreadful sisters
+4g 4e 4a 4f 4b 4g 4c5 4a
+4b 4g 4a 4f 3g 3f 4e 5r
+7r
+7r
+# see see see
+5b 5b 5b 4e 4f
+4g 4e 4a 4f 4b 4g 4c5 4a
+4b 4g 4a 4f 3g 3f 3e 3f 3g 3a 3b 3a
+3g 3f 3e 3f 3g 3a 3b 3a 3g 3f 3e 3f 3g 3a 3b 3a
+5g 5r 6r
+#p4
+5a 5r 5c5 4r 4e
+4c 4a3 4c 4c 5a 5r
+# what yellings
+5r 4r 4e5 4c5 4gs 4a 4e
+5.fn5 4e5 5cs5 4r 4cs5
+# tortured ear!
+5.e5 4cs5 5as 5r
+# lento e piano, 3/4
+CHANGE_TEMPO:5=76
+6.r
+5r 5f 5cs
+5r 5f 5e
+# from their
+6d 5cs
+6d 5e
+6f 5r
+5r 5f 5e
+6d 5cs
+# blackest night
+6d 5e
+6.f
+5r 5f 5e
+5d 5cs 5r
+5r 5f 5e
+5d 5cs 5r
+6.r
+# back in 4/4 concitato
+CHANGE_TEMPO:5=104
+5r 5d 5r 4g 4a
+4b 4g 4c5 4a 4d5 4b 4e5 4c5
+4d5 4b 4c5 4a 3b 3a 3g 3a 3b 3c5 3d5 3c5
+#p5
+3b 3a 3g 3a 3b 3c5 3d5 3c5 3b 3a 3g 3a 3b 3c5 3d5 3e5
+4a 4d5 3r 3a 3g 3a 3b 3a 3g 3a 3b 3c5 3d5 3e5
+3a 3g 3f 3g 3a 3b 3c5 3d5 3g 3f 3e 3f 3g 3b 3a 3g
+3f 3g 3a 3b 3g 3a 3b 3cs5 3a 3d 3e 3f 3g 3a 3b 3cs5
+4d5 3cs5 3b 3a 3g 3f 3e 6d
+#phew
+7r
+7r
+# see see see
+5d5 5d5 5d5 5r
+4g 4b 4g 4d 4e 4g 4e 4b3
+4.c 3b3 3c 3d 3e 3f 5g 5r
+# what
+6r 5r 4r 4d5
+# yellings rend
+4d5 5.fn 4e 4b 5+4d5
+4b 4fn5 4e5 5c5 4r 4c5
+4c5 5.eb 4d 4a 5+4c5
+4a 4eb5 4d5 5b 4r 4g
+#p6
+6.c5 4b 4a
+#3/4 and lento
+CHANGE_TEMPO:5=76
+6a 5r
+5r 5d5 5c5
+6b 5a
+# hated
+5g 5f 5e
+# sight, friendly
+5d 5g 5f
+6e 5d
+5c 6b3
+#night!
+6.a3
+5r 5r 4r 4d
+#concitato
+CHANGE_TEMPO:5=104
+5g 5r 5r 4r 4d
+4g 4bb 4d5 4g 5fs 5r
+4d 3d  3e 4f 4g 4a 4bb 4c5 4a
+5bb 5r 5r 4r 4d5
+5b 4r 4b 4b 4b 4b 4b
+5r 4r 4g 4cs5 4cs5 4cs5 4d5
+5bb 4r 4bb 5e 4r 4e
+#rest the guilty find
+4bb 4bb 4bb 4a 5fs 5r
+4f 3f 3g 4a 4f 4ds5 4e5 4f5 4b
+5e5 5r 4e5 3g5 3f5 4e5 3d5 3c5
+#p7
+4b 3a 3g 4f 4e 5ds 4r 4b
+5gs 4r 4gs 4gs 4gs 4gs 4gs
+5a 4r 4e 4as 4as 4as 4b
+# find, from the pursuing
+5g 5r 4g 3g 3g 4g 4f
+4d 4b3 4r 4d5 4es 4es 4es 4es 
+5f 5r 4d5 3d5 3cs5 4b 3a 3g
+4f 4b3 4g 3f 3e 4b 4f 4g 3f 3e
+# adagio
+CHANGE_TEMPO:5=76
+5d 4.cs 3b3 6b3
+# tempo primo
+CHANGE_TEMPO:5=104
+5e 5r 5g 5r
+5b 5r 5r 4e 4f
+# dreadful sisters rise their baneful
+4g 4e 4a 4f 4b 4g 4c5 4a
+4b 4g 4a 4f 3g 3f 4e 5r
+7r 7r
+# see see see see the
+5b 5b 5b 4e 4f
+#p8
+4g 4e 4a 4f 4b 4g 4c5 4a
+4b 4g 4a 4f 3g 3f 3e 3f 3g 3a 3b 3a
+3g 3f 3e 3f 3g 3a 3b 3a 3g 3f 3e 3f 3g 3a 3b 3c5
+4f 4b 3r 3d5 3c5 3b 3e5 3d5 3c5 3b 3a 3g 3f 3e
+#......aaaaaays
+3ds 3b3 3cs 3ds 3e 3f 3g 3a 5b 5r
+6r 4r 4b 5g5
+4r 3f5 3e5 3d5 3c5 3b 3a 4g 4b 5e5
+4r 3d5 3c5 3b 3a 3g 3f 5e 4r 4a
+#las! alas! no
+4a 4gs 4r 4d5 4d5 4c5 4r 4b
+4a 3c5 3b 3a 3g 3f 3e 5ds 5r
+# from the pursuing
+4b3 3cs 3ds 3e 3f 3g 3a 4b 4b3 5r
+4b3 3cs 3ds 3e 3f 3g 3a 4b 4b3 5r
+6r 5r 4r 4b
+4c5 4b 4b 4as 5b 4r 4b
+4c5 4b 4b 4as 4b 4c5 4b 4as
+#p9
+4b 4c5 4b 4as 5b 5r
+4f5 3f5 3e5 3ds5 3cs5 3b 3a 3g 3f 4e 5r
+4b3 3cs 3ds 3e 3f 3g 3a 4b 4e 5+5e5
+4.g 3f 5e 4r 4a
+4a 4gs 4r 4d5 4d5 4c5 5r 
+#adagio
+CHANGE_TEMPO:5=76
+5r 4r 4c 4fn 4fn 4fn 4e
+6ds 6r
+CHANGE_TEMPO:5=104
+4e 3fs 3g 3a 3b 3cs5 3ds5 4e5 4b 5r
+4g5 3f5 3e5 3ds5 3cs5 3b 3a 4g 4b 5+5e5
+CHANGE_TEMPO:5=60
+4.f 3e 6e
+
+Piano RH:
+6+4.fN;6+4.d;6+4.b3 3fn;3d;3b3 3.fn;3.d;3.b3 2fn;2d;2b3 3.fn;3.d;3.b3 2fn;2d;2b3
+7e;7d;7b3
+3r 3cs5;3a;3e 3.cs5;3.a;3.e 2cs5;2a;2e 3.cs5;3.a;3.e 2cs5;2a;2e 3.cs5;3.a;3.e 2cs5;2a;2e  6+6e5;6+6bb;6+6g
+4r 4d5;4g;4f 4d5;4g;4f 4d5;4g;4f 
+6c5;6a;6fs 4r 4as;4f;4cs 4as;4f;4cs 4as;4f;4cs 
+6cs5;6as;6f 4r 4b;4f 4b;4f 4b;4f 
+6b;6f 5fs5;5c5;5a 3r 3f5;3c5;3a 3.f5;3.c5;3.a 2f5;2c5;2a
+6f5;6eb5;6a 3r 3g3 3.g3 2g3 3.bb3 2bb3 3.d 2d
+3.g 2g 3.bb 2bb 3.d5 2d5 3.g5;3.g 2g5;2g 6ab;6fn;6d
+5g;5eb 4r 4c5;4eb 4c5;4fn 4bn;4fn 4bn;4fn 4bn;4fn 
+4b;4ab;4fn 4b;4ab;4fn 4bb;4fn;4d 4bb;4fn;4d 4bb;4g 4bb;4g 4bb;4g 4bb;4g 
+5bb;5g 5r 6r
+6r 5ab;5fn 5r
+6r 5d;5bn3 5en;5c
+#furioso
+3r 3e;3cs 3e;3cs 3e;3cs  3a;3e;3cs 3a;3e;3cs  3cs5;3a;3e 3cs5;3a;3e  5e5;5cs5;5a 5r
+5r 3cs;3a3 3d 3e 3d 3cs;3a3 3d 3e 3d 3cs;3a3 3d 3e 3d 
+#chain me
+3cs;3a3 2d 2e 2fs 2gs 2a 2b 3cs5;3a 3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a  3gs5;3cs5;3gs 3gs5;3cs5;3gs 3gs5;3cs5;3gs 3gs5;3cs5;3gs 3gs5;3cs5;3gs 3gs5;3cs5;3gs 3gs5;3cs5;3gs 3gs5;3cs5;3gs 
+3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs 3gs5;3es5;3cs5;3gs  3fs5;3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a 3fs5;3cs5;3a 
+3cs5;3as;3fs 3cs5;3as;3fs 3cs5;3as;3fs 3cs5;3as;3fs 3cs5;3as;3fs 3cs5;3as;3fs 3cs5;3as;3fs 3cs5;3as;3fs  3b;3fs 3b;3fs 3b;3fs 3b;3fs 3b;3fs 3b;3fs 3b;3fs 3b;3fs 
+3b;3g;3e 3b;3g;3e 3b;3g;3e 3b;3g;3e  3b;3g;3cs 3b;3g;3cs 3b;3g;3cs 3b;3g;3cs  5as5;5fs5;5cs5 5b5;5fs5;5ds5 
+7r
+#concitato
+5r 5b;5g;5e 5r 5b5;5g5;5e5;5b
+3r 3e5 3ds5 3cs5 3b 3a 3g 3f 3g 3e 3g 3a 3b;3f 3b3 3b;3f 3b3
+3g 3e 3g 3a 3b;3f 3b3 3b;3f 3b3 5e;5b3;5gs3 5r
+#p3
+5r 3r 3e 3.e 2fn 3.fn 2fs 3.f 2g 3.g 2gs 3.gs 2a
+5a 5r 5r 3r 3d 3.d 2eb
+3.eb 2en 3.en 2fn 3.fn 2fs 3.fs 2g 5g 5r
+# black tisiphone
+6r 6g;6e
+5r 5a;5f;5d 5b;5g;5d 4r 3.b3 2c
+3.c 2cs 3.cs 2d 3.d 2ds 3.ds 2e 4a 4e5 4e 4f
+4g 4e 4a 4f 4b 4g 4c5 4a
+# presence taints the skies
+4b 4g 4a 4f 3g 3f 4e 4e5;4b 4f5;4ds5;4b
+4g5;4e5;4b 4e5;4cs5 4a5;4f5;4cs5 4f5;4ds5 4b5;4g5;4e5 4g5;4e5 4c6;4a5;4e5 4a5;4f5;4dn5
+4b5;4g5;4b 4g5;4e5;4b 4a5;4f5;4c5 4f5;4ds5;4b 3g5;3b 3f5 3e5 3f5 3g5;3e5 3a5;3f5 3b5;3g5 3a5;3f5
+3g5;3e5 3f5 3e5 3f5 3g5;3e5 3a5;3f5 3b5;3g5 3a5;3f5 3g5;3e5 3f5 3e5 3f5 3g5,3a5,3b5,3a5;4e5,4ds5
+# dreadful sisters rise
+4g5;4e5 4e;4cs 4a;4f;4cs 4f;4ds 4b;4g;4e 4g;4e 4c5;4a;4e 4a;4f
+4b;4g 4g;4e 4a;4e 4f;4ds 5g;5e;5b3 5e5;5b;5g
+5r 5g5;5e5;5b 5r 5b5;5g5;5e5 
+3r 3e5 3d5 3c5 3b 3a 3g 3f 3e 3a 3g 3fn 3e 3d 3c 3b3
+#p4
+3a3 3a 3c5 3d5 3e5 3e 3e5 3e 3c5 3a 3c5 3d5 3e5 3e 3e5 3e
+3c 3c 3a3 3a3 3c 3c 3e 3e 3a 3a 3c5 3c5 3.e5 2e 3.e 2fn
+# what yellings
+3.fn 2fs 3.fs 2g 3.g 2gs 3.gs 2a 5a 5r
+3r 3fn;3d;3b3 3.fn;3.d;3.b3 2fn;2d;2b3 3.fn;3.d;3.b3 2fn;2d;2b3 3.fn;3.d;3.b3 2fn;2d;2b3  4a;4e;4cs 4a;4e;4cs 4a;4e;4cs 4a;4e;4cs 
+# tortured ear!
+4cs5;4a;4e 4cs5;4a;4e 4cs5;4a;4e 4cs5;4a;4e  5cs5;5as;5f 5r
+# lento e piano 3/4
+6f;5d,5cs 5e;5b3
+5d;5b3 5cs;5as3 
+5+6f;5r,5d,5cs
+# from their
+5+6b;5e,5f,5f;5b3,5d,5r 5as;5e;5cs
+5b;5d 5f;5cs 5+5e;5b3,5cs;5r,5as3
+5d;5b3 5cs;5as3
+# friendly shades
+5d;5b3 5f;5cs 5e;5b3
+6d;6b3 5f;5cs;5as3
+# blackest night
+5d;5b3 5cs 5cs;5b3
+5d;5b3 5cs;5as3 5e;5cs;5as3
+5d;5b3 5cs 5e;5b3
+6f;5d,5cs;5b3,5as3 5f;5cs;5as3
+5d;5b3 5cs 5e;5b3
+6f;5d,5cs;5b3,5as3 5g;5e;5b3
+4d,4e,5.cs,4b3;6b3,5as3
+# back in 4/4 concitato
+5b3 5r 5d;5b3 4g 4a
+4b 4g 4c5 4a 4d5 4b 4e5 4c5
+4d5 4b 4c5 4a 5b 5d5;5b;5g
+#p5
+5r 5g5;5d5;5b 5r 5b5;5g5;5d5
+5r 5a5;5d5 5r 5d6;5b5;5d5 
+5r 5a;5f;5d 5r 5g;5e;5cs
+4r 4d5;4a;4f 4r 4cs5;4g;4e 4r 4d5;4a;4f 4r 4cs5;4g
+5f5;5d5;5a;5f 5r 5r 4g;4d 4a;4f;4d
+4b;4g;4d 4g;4e 4c5;4a;4e 4a;4f 4d5;4b;4g 4b;4g 4e5;4c5;4g 4c5;4f
+4d5;4g 4b5;4g5;4d5 4c6;4a5;4e5 4a5;4d5 3b5;3d5 3a5 3g5 3a5 3b5 3c6 3d6 3c6
+# see see see
+3b5 3a5 3g5 3a5 3b5 3c6 3d6 3c6 3b5 3g5 3f5 3e5 3d5 3c5 3b 3a
+4g 4b 4g 4d 4e 4g 4e 4b3
+4.c 3b3 3c 3d 3e 3f 5g 3r 3d 3.d 2eb
+3.eb 2en 3.e 2fn 3.fn 2fs 3.fs 2g 5g 5r 
+6r 4b;4e;4b3 4b;4e;4b3 4b;4e;4b3 4b;4e;4b3
+4b;4e;4d 4b;4e;4d 4b;4d 4b;4e;4b3 4a;4e;4c 4a;4e;4c 4a;4e;4c 4a;4e;4c 
+4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 
+4c5;4a;4eb 4c5;4a;4eb 4c5;4a;4eb 4a;4eb 4b;4g;4d  4b;4g;4d  4b;4g;4d  4b;4g;4d  
+#p6
+4c5;4g;4eb 4c5;4g;4eb 4c5;4g;4c 4c5;4g;4c  4c5;4f;4d 4a;4f;4d 4b;4g;4d 4c5;4g;4d
+#3/4 and lento
+5a;5f;5d 5d5;5b 5c5;5a;5f
+6b;6g;6d 5a;5f;5d
+6g;6d;5d,5b3 5f;5d;5c
+6d;5b3,5a3 5cs
+# sight, friendly
+6d 5r
+6e;6c 5d;5b3
+6.r
+# night
+6.r
+6.r
+#concitato
+6r 3bb;3g 3d 3bb;3g 3d 3bb;3g 3d 3bb;3g 3d 
+3d5;3bb 3g 3d5;3bb 3g 3d5;3bb 3g 3d5;3bb 3g  3a;3fs 3d5 3c5 3bb 3a 3g 3fs 3e
+# from the pursuing furies of the
+6r,5f,5a;6r,6f;7d
+4bb;4g;4d 3fn 3eb 3d 3c 3bb3 3a3 4g3 4bb3 4fn;4bb3 4g;4d;4bb3
+7fn;7d;7b3
+#find no rest the guilty
+6c5;6g;6eb 6g;6cs;6g3
+# find -> find
+7+6g;6d,6+6e;7+6bb3
+# find, from the pursuing furies of the
+6+6a;6+6f;6d,6ds 6b;6f;6ds
+3b;3g;3e 3e5 3d5 3c5 3b 3a 3g 3f 3e 3b3 3b;3e 3b3 3b;3e 3b3 3b;3e 3b3 
+#p7
+5b;5e 5r 3b;3f 3ds 3b;3f 3ds 3b;3f 3ds 3b;3f 3ds 
+7b;7gs;7e
+6a;6e 6+6e5;6as,6b;6e,6g
+6cs5
+#furies no rest the guilty find
+7d5;7b;6f,6es
+3cs5;3f 3cs 3cs5;3f 3cs 3cs5;3f 3cs 3cs5;3f 3cs  5d5;5f 4r 4e;4b3
+#furies from the pursuing furies
+4cs;4as3 4f;4b3 5g,4f,4d;6b3 4b3 4b3
+#adagio
+5d;5b3 5cs;5as3 6b3
+#tempo primo
+5r 5e5;5b;5g 5r 5g5;5e5;5b
+5r 5b5;5g;5e5 5b;5g;5e 4e 4f
+#dreadful sisters rise their baneful
+4g 4e 4a 4f 4b 4g 4c5 4a
+4b 4g 4a 4f 3g 3f 4e 4e5;4b 4f5;4ds5;4b
+4g5;4e5;4b 4e5;4cs5 4a5;4f5;4cs5 4f5;4ds5 4b5;4g;4e5 4g;4e5 4c6;4a5;4e5 4a5;4f5
+4b5;4g5;4d5 4g5;4e5 4a5;4f5 4f5;4ds5;4b 3g5;3b 3f5 3e5 3f5 3g5;3e5 3a5;3f5 3b5;3g5 3a5;3f5
+# see see see
+3g5;3e5 3f5 3e5 3f5 3g5;3e5 3a5;3f5 3b5;3g5 3a5;3f5 3g5;3e5 3f5 3e5 3f5 3g5,3a5,3b5,3a5;4e5,4ds5
+#p8
+4g5;4e5 4e;4cs 4a;4f;4cs 4f;4ds 4b;4g;4e 4g;4e 4c5;4a;4e 4a;4f
+4b;4g 4g;4e 4a;4e 4f;4ds 5g;5e 5e5;5b;5g
+5r 5g5;5e5;5b 5r 5b5;5g5;5e5
+5r 5b;5g;5d 5r 5a;5e;5c
+4r 4b;4f;4ds 5b;5g;5e 4r 4b;4f;4ds 3.b;3.f;3.ds 2b3 3.b3 2c
+3.c 2cs 3.cs 2d 3.d 2ds 3.ds 2e 4e 4e5 4r 4b;4g
+#the guilty find no rest
+5.a;5g,4f 4c5;4d 5b;5d 4r 4g;4e;4b3
+5.f;5e,4ds;5c,4b3 4a;4ds 5g;5e 5+4a;5+4e;5c,4d
+4gs 5+4d5,4c5;5b,5a;5+5e 4r 4f;4ds
+5e 4r 4e5;4c5;4f 5ds5;5b;5f 5r
+4b3 3cs 3ds 3e 3f 3g 3a 4b 3cs5 3ds5 3e5 3f5 3g5 3a5
+4b5 4b 5r 4b3 3cs 3ds 3e 3f 3g 3a
+4b 3cs5 3ds5 3e5 3f5 3g5 3a5 4b5 4b 4r 4b;4f;4ds
+4c5;4g;4e 4b;4g;4e 4b;4g;4e 4as;4g;4e 4b;4f;4ds 4f;4ds 4g;4e 4b;4f;4ds
+4c5;4g;4e 4b;4g;4e 4b;4g;4e 4as;4g;4e 4b;4f;4ds 4c5;4g;4e 4b;4f;4ds 4as;4g;4e
+#p9
+4b;4f;4ds 4c5;4g;4e 4b;4f;4ds 4as;4g;4e 4b;4f;4ds 4c5;4g;4e 4b;4f;4ds 4as;4g;4e
+5b;5f;5ds 5f;5b3 5g;5e;5b3 5r
+4b3 3cs 3ds 3e 3f 3g 3a 4b 4e 4r 4e5;4c5;4g
+5e5;5c5;5f 5ds5;5a 5e5;5g 4r 4e
+5e;5d 4r 4b;4e 4b,4c5;4r,4a;5e 5r
+6r 4r 4fn;4c;4fn3 4fn;4c;4fn3 4e;4c;4fn3
+6ds;6b3;6fs3 6r
+5b;5e;5b3 5a;5ds;5b3 6g;6e;6b3
+5g5;5e5;5b 5ds5;5a;5f 5e5;5b;5e 4r 4f;4e;4cs
+5g;5e;5b3 5ds;5b3;5a3 6e;6b3;6g3 
+
+Piano LH:
+6+4.gs2 3gs2 3.gs2 2gs2 3.gs2 2gs2 
+7gs
+3r 3g 3.g 2g 3.g 2g 3.g 2g  6+6cs
+4r 4d 4d 4d
+6ds 4r 4e 4e 4e
+6e 4r 4b;4ds 4b;4ds 4b;4ds 
+6b;6ds 5dn 3r 3d 3.d 2d
+6c 3r 3g2 3.g2 2g2 3.bb2 2bb2 3.d 2d
+3.g 2g 3.bb 2bb 3.d4;3.d 2d4;2d 3.g 2g 6bn2
+5c 4r 4c 4db 4db 4db 4db
+4dn 4dn 4dn 4dn 4bb;4eb 4bb;4eb 4bb;4eb 4bb;4eb 
+5c4;5en 5r 6r
+6r 5c4;5fn 5r
+6r 5g 5g;5c
+3r 3a;3a2 3a;3a2 3a;3a2  3a;3a2 3a;3a2 3a;3a2 3a;3a2  5a;5a2 5r
+5r 3a2 3b2 3cs2 3b2 3a2 3b2 3cs2 3b2 3a2 3b2 3cs2 3b2 
+3a2 2b2 2cs 2d 2e 2f 2gs 3a 3a 3a 3a 3cs4;3gs;3es 3cs4;3gs;3es 3cs4;3gs;3es 3cs4;3gs;3es 3cs4;3gs;3es 3cs4;3gs;3es 3cs4;3gs;3es 3cs4;3gs;3es 
+3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3gs;3es;3cs 3cs4;3fn;3ds 3cs4;3fn;3ds 3cs4;3fn;3ds 3cs4;3fn;3ds 3cs4;3fn;3ds 3cs4;3fn;3ds 3cs4;3fn;3ds 3cs4;3fn;3ds 
+3cs4;3as;3fs;3e 3cs4;3as;3fs;3e 3cs4;3as;3fs;3e 3cs4;3as;3fs;3e 3cs4;3as;3fs;3e 3cs4;3as;3fs;3e 3cs4;3as;3fs;3e 3cs4;3as;3fs;3e  3b;3fs;3d 3b;3fs;3d 3b;3fs;3d 3b;3fs;3d 3b;3fs;3d 3b;3fs;3d 3b;3fs;3d 3b;3fs;3d 
+3b;3g 3b;3g 3b;3g 3b;3g  3b;3g;3e 3b;3g;3e 3b;3g;3e 3b;3g;3e  5fs;5fs2 5b2;5b1
+7r
+#concitato
+4e 4g 4e 4b2 4e 4g 4e 4b2 
+3b2;3g2 3e 3g2;3b2 3e 3f;3ds;3b2 3b 3f;3ds;3b2 3b 3g;3e 3b 3g;3e 3b  3ds 3f 3ds 3f
+3g;3e 3b 3g;3e 3b  3ds 3f 3ds 3f 5e 5r
+#p3
+5r 3r 3e 3.e 2fn 3.fn 2fs 3.fs 2g 3.g 2gs 3.gs 2a
+5a 5r 5r 3r 3d 3.d 2eb
+3.eb 2en 3.en 2fn 3.fn 2fs 3.fs 2g 5g 5r
+#black
+6r 6bb;6cs
+5r 5d 5g2 4r 3.b2 2c
+3.c 2cs 3.cs 2d 3.d 2ds 3.ds 2e 4e 4e4 5r
+7r
+#presence taints
+6r 5r 4g 4b
+4e 4a 4f 4b 4g 4c4 4a 4d4
+# 2 bars
+4g 4c4 4f 4b 6+6+6b;4e,4g,4e,4b2,4e,4g,4e,4b2,4e,4g,4e,4b2
+4b;4e 4a 4f 4b 4g 4c4 4a 4d4
+#presence taints the skiiiiiiies
+4b;4g 4c4 4c4;4f 4b 4e 4g 4e 4b2
+4e 4g 4e 4b2 4e 4g 4e 4b2 
+5e 5r 3r 3a 3g 3fn 3e 3d 3c 3b2
+#p4
+4a2 4a 4b;4gs 4gs;4e 4a;4a2 4a 4b;4g 4e
+4c 4a2 4c 4e 5a 3r 3e 3.e 2fn
+3.fn 2fs 3.f 2g 3.g 2gs 3.gs 2a 5a 5r
+3r 3gs2 3.gs2 2gs2 3.gs2 2gs2 3.gs2 2gs2  4g2 4g2 4g2 4g2
+# tortured ear!
+4g 4g 4g 4g 5f 5r
+# lento e piano 3/4
+6f;5b2,5an2 5g2 6.f;6.f2
+5f;5b2 5f;5an2 5g2
+# from their
+5r,6f;6.f2
+6f;5b2,5a2 5g;5g2 5r,6f;6.f2
+6f;5b2,5a2 5g2
+6.f;6.f2
+#blackest night
+6f;5b2,5an2 5g;5g2
+5d,6f;6.f2
+6f;5b2,5an2 5g2
+6.f2
+5f;5b2 5f;5an2 5g2
+6f2 5e2
+6f;6f2 5f;5f2
+# back in 4/4 concitato
+5f;5b2 5r 5g;5g2 5r
+7r
+6r 4g 4b 4g 4d
+#p5
+4g 4b 4g 4d 4g 4b 4g 4d 
+4f 4d 4r 4f 4g 4b 4g 4e
+4f 4a 4f 4d 4e 4g 4e 4cs
+4d 4f 4e 4g 4f 4d 4b2 4e
+5d 5r 5r 4b2 4d
+4g2 4c 4a2 4d 4b2 4e 4c 4a
+# goes into treble clef halfway through measure
+4b2 4g 4a2 4f 4g 4b4 4g4 4d4
+# see see see
+4g4 4b4 4g4 4d 5g4 5r
+# back to basse clef
+4g 4b 4g 4d 4e 4g 4e 4b2
+4.c 3b2 3c 3d 3e 3f 5g 3r 3d 3.d 2eb
+3.eb 2en 3.e 2fn 3.fn 2fs 3.fs 2g 5g 5r 
+# yellings rend
+6r 4gs2 4gs2 4gs2 4gs2 
+4gs2 4gs2 4gs2 4gs2  4a2 4a2 4a2 4a2 
+4g 4g 4g 4g  4f 4f 4f 4f 
+4f 4f 4f 4f  4fn 4fn 4fn 4fn 
+#p6
+4eb 4eb 4eb 4eb  4d 4d 4d 4d 
+# 3/4 and lento
+5d 5d 5d 
+6.+6.d
+6.+5d;6r,5g,5a;6r,5e,5f
+# sight friendly shades of
+5b,5a,6r,5g;5g,5r,6f,5r;6+6.d;6+6.d2
+#blackest night!
+5c4,6b,6.a;5a,6g,6.f;5f,6r,6.r;6.+6.d;6.+6.d2
+6.r
+#concitato
+5r 4r 4d 4g 4bb 4g 4d
+4bb2 4g2 4bb2 4c 3d 3d4 3c4 3bb 3a 3g 3fs 3e
+4d 4d 4d 4d 4d 4d 4d 4d 
+4g2 4g 4g2 4g 4g2 4g 4g2 4g 
+#-las no rest the guilty
+4ab2 4ab 4ab2 4ab 4ab2 4ab  4g 4fn
+4eb2 4eb 4eb2 4eb 4eb2 4eb 4eb2 4eb 
+4d2 4d 4d2 4d  4cs2 4cs 4cs2 4cs 
+# rest the guilty find
+4cs2 4cs 4cs2 4cs 4c2 4c 4c2 4c 
+4c2 4c 4c2 4c  4b2 4b 4a2 4a
+4g2 4g 4g2 4g 4g2 4g 4g2 4g 
+#p7
+4g2 4g 4g2 4g 4b2 4b 4b2 4b 
+4d 4d4 4d 4d4 4d 4d4 4d 4d4 
+4c 4c4 4c 4c4 4c 4c4 4c 4c4 
+4b2 4b 4b2 4b  4as2 4as 4as2 4as 
+#furies no rest
+4b2 4b 4b2 4b 4gs2 4gs 4gs2 4gs 
+4as2 4as 4as2 4as 4b 3b2 3cs 4d 4e
+4f 4d 4e 4cs 4d 4b2 4e 4g
+5f 5f;5f2 6f;6ds;6b2
+#treble clef
+4e4 4g4 4e4 4b3 4e4 4g 4e4 4b3
+4e4 4g4 4e4 4b3 4g3 4b3 5r
+#back in basse clef
+7r
+6r 5r 4g 4b
+4e 4a 4f 4b 4g 4c4 4a 4d4
+4g 4c4 4f 4b
+6+6+6b;4e,4g,4e,4b2,4e,4g,4e,4b2,4e,4g,4e,4b2
+#p8
+4b;4e 4a 4f 4b 4g 4c4 4a 4d4
+4d4;4g 4c4 4c4;4f 4b 4b;4e 4g 4e 4b2
+4e 4g 4e 4b2 4e 4g 4e 4a2
+4d 4g2 4b2 4g2 4c 4e 4c 4a2
+4b2 4b 4g 4e 5ds 3r 3b2 3.b2 2c
+3.c 2cs 3.cs 2d 3.d 2ds 3.ds 2e 4e 4e4 4r 4b
+4c4 4c 4d 4f 5g 4r 4g
+4a 4a2 4b2 4b 5c4 4r 4c
+5b2 4r 4gs 5a 4r 4b
+5c4 4r 4a 5b 5r
+4b2 3cs 3ds 3e 3f 3g 3a 4b 4b2 5r
+4b2 3cs 3ds 3e 3f 3g 3a 4b 4b2 5r
+6r 4b2 4b 4b2 4b
+4b2 4b2 4b2 4b2 4b2 4b2 4b2 4b2 
+4b2 4b2 4b2 4b2 4b2;4b1 4b2;4b1 4b2;4b1 4b2;4b1 
+4b2;4b1 4b2;4b1 4b2;4b1 4b2;4b1 4b2;4b1 4b2;4b1 4b2;4b1 4b2;4b1 
+4b2;4b1  4b2 4b2 4ds 4e 4e2 5r
+4b2 3cs 3ds 3e 3f 3g 3a 4b 4e 4r 4cn
+5a2 5b2 5c 4r 4c
+5b2 4r 4gs 5a 5r
+6r 4a2 4a2 4a2 4a2
+6a2;6a1 6r
+4g2 4g2 4f2 4f2 4e2 3f2 3g2 3a2 3b2 3cs 3ds
+5e 5f 5g 4r 4as2
+6b2 6e2

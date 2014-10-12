@@ -11,6 +11,8 @@ my $note_re = qr/((\d+\.?)    # duration
                  )
                 /xi;
 
+my $control_re = qr/CHANGE_TEMPO:\d+=\d+/xi;
+
 sub new {
     my ($class, $fn) = @_;
 
@@ -107,6 +109,12 @@ sub parse_file {
                         push @chord_part_specs, \@note_specs;
                     }
                     push @notes, { chord => \@chord_part_specs };
+                # control
+                } elsif ($ns =~ /^$control_re$/) {
+                    my ($type, $spec) = split ":", $ns;
+                    push @notes, { control =>
+                                   { type => $type, spec => $spec }
+                    };
                 } else {
                     warn "can't parse note spec: $ns";
                 }

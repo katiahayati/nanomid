@@ -26,6 +26,11 @@ my %duration_to_mult = (
     66 => 1/6,
     );
 
+sub calculate_tempo {
+    my ($tempo_str) = @_;
+    my ($which_note, $bpm) = split "=", $tempo_str;
+    return 60 / $bpm * 1_000_000  * (1 / $duration_to_mult{$which_note});
+}
 
 my $fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
 my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
@@ -43,11 +48,25 @@ my $tempo = 500_000; # quarter = 120
 if ($obj->{header_data}->{tempo}) {
     # 5=120
     # 6.=32
-    my ($which_note, $bpm) = split "=", $obj->{header_data}->{tempo};
-    $tempo = 60 / $bpm * 1_000_000  * (1 / $duration_to_mult{$which_note});
+    $tempo = calculate_tempo($obj->{header_data}->{tempo});
 }
 
+my $time_sig = $obj->{header_data}->{time};
+my ($numerator, $denominator) = split " ", $time_sig;
+# 1 MIDI quarter = 24 clocks
+# 0 numerator log_2(denominator) mult{denominator}* 8
+my $time_event = [ 'time_signature', 0, $numerator,
+           int(log($denominator)/log(2)),
+           36, # not sure this one matters
+           8 ];
+
 my @tracks;
+my @control_events;
+
+push @control_events,
+    [ 'track_name', 0, 'title' ],
+    $time_event,
+    [ 'set_tempo', 0, $tempo ];
 
 my $channel = 0;
 
@@ -75,7 +94,18 @@ foreach my $data_track (@{$obj->{tracks}}) {
 
     # within each chord, calculate absolute time for each note,
     # and then convert to delta times at the end
-    foreach my $chord_obj (@{$data_track->{notes}}) {
+    CHORD: foreach my $chord_obj (@{$data_track->{notes}}) {
+        if (defined $chord_obj->{control}) {
+            my $data = $chord_obj->{control};
+            if ($data->{type} eq "CHANGE_TEMPO" ) {
+                my $new_tempo = calculate_tempo($data->{spec});
+                push @control_events, ( [ "set_tempo", $current_time, $new_tempo ] );
+                next CHORD;
+            } else {
+                die "Unknown control type " . $data->{type};
+            }
+        }
+
         my @chord_events;
         my $chord_start_time = $current_time;
         my $chord_end_time;
@@ -162,21 +192,19 @@ foreach my $data_track (@{$obj->{tracks}}) {
     push @tracks, $track;
 }
 
+# compute delta times for control events;
+my $previous_control_time = 0;
+my @delta_control_events;
+foreach my $e (@control_events) {
+    my $t = $e->[1];
+    my $dt = $t - $previous_control_time;
+    $e->[1] = $dt;
+    push @delta_control_events, $e;
+    $previous_control_time = $t;
+}
 
-my $time_sig = $obj->{header_data}->{time};
-my ($numerator, $denominator) = split " ", $time_sig;
-# 1 MIDI quarter = 24 clocks
-# 0 numerator log_2(denominator) mult{denominator}* 8
-my $time_event = [ 'time_signature', 0, $numerator, 
-           int(log($denominator)/log(2)),
-           36, # not sure this one matters
-           8 ];
-my $info_track = MIDI::Track->new( { events => [ 
-                                          [ 'track_name', 0, 'title' ],
-                                          $time_event,
-                                          [ 'set_tempo', 0, $tempo ],
-                                          ]});
-unshift @tracks, $info_track;
+my $control_track = MIDI::Track->new( { events => \@delta_control_events } );
+unshift @tracks, $control_track;
 
 # format 1 MIDI file (multiple tracks)
 my $opus = MIDI::Opus->new({
