@@ -32,6 +32,19 @@ sub calculate_tempo {
     return 60 / $bpm * 1_000_000  * (1 / $duration_to_mult{$which_note});
 }
 
+sub calculate_time_sig {
+    my ($time_sig, $time) = @_;
+    my $separator = ($time_sig =~ /%/) ? "%" : " ";
+    my ($numerator, $denominator) = split $separator, $time_sig;
+    # 1 MIDI quarter = 24 clocks
+    # 0 numerator log_2(denominator) mult{denominator}* 8
+    my $time_event = [ 'time_signature', $time, $numerator,
+		       int(log($denominator)/log(2)),
+		       36, # not sure this one matters
+		       8 ];
+    return $time_event;
+}
+
 my $fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
 my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
 my $obj = SM->new($fn);
@@ -39,7 +52,7 @@ my $obj = SM->new($fn);
 # divisible by 2, 3, 4, 6, 8, 12, 16, 32, 64
 my $quarter_ticks = 192;
 
-my $key = $obj->{header_data}->{key};
+my $header_key = $obj->{header_data}->{key};
 my @instruments = (defined $obj->{header_data}->{instruments}) ?
     split " ", $obj->{header_data}->{instruments} : ();
 my @default_octaves = (defined $obj->{header_data}->{default_octaves}) ?
@@ -52,13 +65,7 @@ if ($obj->{header_data}->{tempo}) {
 }
 
 my $time_sig = $obj->{header_data}->{time};
-my ($numerator, $denominator) = split " ", $time_sig;
-# 1 MIDI quarter = 24 clocks
-# 0 numerator log_2(denominator) mult{denominator}* 8
-my $time_event = [ 'time_signature', 0, $numerator,
-           int(log($denominator)/log(2)),
-           36, # not sure this one matters
-           8 ];
+my $time_event = calculate_time_sig($time_sig, 0);
 
 my @tracks;
 my @control_events;
@@ -71,6 +78,7 @@ push @control_events,
 my $channel = 0;
 
 my $previous_track_name;
+
 foreach my $data_track (@{$obj->{tracks}}) {
     my $instrument = (@instruments) ? shift @instruments : 68; # 68 = oboe
     my $default_octave = (@default_octaves) ? shift @default_octaves : 4;
@@ -92,6 +100,8 @@ foreach my $data_track (@{$obj->{tracks}}) {
         [ 'patch_change', 0, $channel, $instrument ], 
     );
 
+    my $key = $header_key;
+    
     # within each chord, calculate absolute time for each note,
     # and then convert to delta times at the end
     CHORD: foreach my $chord_obj (@{$data_track->{notes}}) {
@@ -101,6 +111,13 @@ foreach my $data_track (@{$obj->{tracks}}) {
                 my $new_tempo = calculate_tempo($data->{spec});
                 push @control_events, ( [ "set_tempo", $current_time, $new_tempo ] );
                 next CHORD;
+	    } elsif ($data->{type} eq "CHANGE_KEY") {
+		$key = $data->{spec};
+		next CHORD;
+	    } elsif ($data->{type} eq "CHANGE_TIMESIG") {
+		my $new_timesig = calculate_time_sig($data->{spec}, $current_time);
+		push @control_events, $new_timesig;
+		next CHORD;
             } else {
                 die "Unknown control type " . $data->{type};
             }
