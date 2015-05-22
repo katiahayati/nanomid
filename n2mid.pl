@@ -26,6 +26,24 @@ my %duration_to_mult = (
     66 => 1/6,
     );
 
+sub calculate_key {
+    my ($key_str, $time) = @_;
+
+    my $midi_key;
+    my $major_or_minor = 0; # major
+    if ($key_str) {
+	my ($num, $sharp_or_flat) = split "", $key_str;
+	if ($sharp_or_flat eq "b") {
+	    $num = -$num;
+	}
+	$midi_key = $num;
+    } else {
+	$midi_key = 0;
+    }
+    my $event = [ 'key_signature', $time, $midi_key, $major_or_minor ];
+    return $event;
+}
+
 sub calculate_tempo {
     my ($tempo_str) = @_;
     my ($which_note, $bpm) = split "=", $tempo_str;
@@ -53,6 +71,8 @@ my $obj = SM->new($fn);
 my $quarter_ticks = 192;
 
 my $header_key = $obj->{header_data}->{key};
+my $key_event = calculate_key($header_key, 0);
+
 my @instruments = (defined $obj->{header_data}->{instruments}) ?
     split " ", $obj->{header_data}->{instruments} : ();
 my @default_octaves = (defined $obj->{header_data}->{default_octaves}) ?
@@ -73,16 +93,21 @@ my @control_events;
 push @control_events,
     [ 'track_name', 0, 'title' ],
     $time_event,
+    $key_event,
     [ 'set_tempo', 0, $tempo ];
 
 my $channel = 0;
 
 my $previous_track_name;
 
+my %time_to_keys;
+$time_to_keys{0} = $header_key;
+
 foreach my $data_track (@{$obj->{tracks}}) {
     my $instrument = (@instruments) ? shift @instruments : 68; # 68 = oboe
     my $default_octave = (@default_octaves) ? shift @default_octaves : 4;
     my $track_name = $data_track->{name};
+
     # keep all tracks that are called the same thing on the same channel
     # so if you have 2 piano tracks they will be on 1 MIDI channel
     if (!$previous_track_name or $track_name ne $previous_track_name) {
@@ -105,6 +130,10 @@ foreach my $data_track (@{$obj->{tracks}}) {
     # within each chord, calculate absolute time for each note,
     # and then convert to delta times at the end
     CHORD: foreach my $chord_obj (@{$data_track->{notes}}) {
+	if (defined $time_to_keys{$current_time}) {
+	    $key = $time_to_keys{$current_time};
+	}
+    
         if (defined $chord_obj->{control}) {
             my $data = $chord_obj->{control};
             if ($data->{type} eq "CHANGE_TEMPO" ) {
@@ -113,6 +142,9 @@ foreach my $data_track (@{$obj->{tracks}}) {
                 next CHORD;
 	    } elsif ($data->{type} eq "CHANGE_KEY") {
 		$key = $data->{spec};
+		$time_to_keys{$current_time} = $key;
+		my $new_key_event = calculate_key($data->{spec}, $current_time);
+		push @control_events, $new_key_event;
 		next CHORD;
 	    } elsif ($data->{type} eq "CHANGE_TIMESIG") {
 		my $new_timesig = calculate_time_sig($data->{spec}, $current_time);
