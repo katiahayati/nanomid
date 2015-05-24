@@ -1,0 +1,133 @@
+header:
+time: 4 4
+key:
+default_octaves: 4 4 4 3
+instruments: 68 67 0 0
+tempo: 5=80
+
+Sempronio:
+5r 4r 4b 3b 3fs 3fs 3fs 4e 4ds
+4r 3fs 3g 4a 3a 3b 4a 4g 4r 4g
+4g 4g 4c5 4c5 4r 3c5 3c5 4c5 3d5 3e5
+4d5 4d5 3r 3d5 3d5 3d5 4d5 3a 3b 4c5 3c5 3b
+4a 4g 4r 4g 5b 3b 3b 3b 3c5
+4d5 4d5 4b 4g 4c5 4c5 4r 4c5
+4.c5 3c5 4c5 4b 5g 5r
+5r 4g 3g 3g 4c5 4c5 5r
+#p77
+4c5 3c5 3c5 4c5 3g 3a 4bb 4bb 4r 4bb
+4bb 4bb 4bb 4c5 4bb 4a 5r
+7r
+* 5r 4r 4a 3a 3a 3a 3d5 4d5 4a
+* 4r 3a 3a 4a 3a 3gs 4b 4b 5r
+* 5r 5r 5r 4r 4b
+4a 4gs * 5r 5r 4r 3a 3b
+4cs5 4r 5r 6r
+#p78
+4r 4r * 4r 4r 3.a 2d 4d 4r 4r
+5r 5r * 5r 3r 3fs 3fs 3g
+5a 4a 3b 3fs 4fs 4g 5r
+7r
+4r 4b 4b 4fs 4.a 3a 4a 4gs
+5e 4r 3e 3fs 5gs 4r 3gs 3a
+5b 3r 3b 3gs 3e 5a 5r
+5r 5r * 5r 4r 4gs
+4b 4b 4b 4a 4gs 4fs 4a 3gs 3fs
+5bs 4r 4bs 4bs 4bs 4.bs 3cs5
+#p79
+4cs5 4gs 5r 6r
+* 4r 4r 4r 3cs5 3ds5 4cs5 4b 5r
+7r
+5r 5r * 5r 4cs5 3b 3a
+4ds5 4ds5 5r 3.ds5 2ds5 4e5 4e5 4b
+
+Volpino:
+7r 7r 7r 7r 7r 7r
+5r 5r 5r 4b 4d5
+* 4d5 4g 5r 6r
+#p77
+7r 7r
+4r 4a 4a 4bb 4g 3g 3g 4g 3a 3e
+4e 4f 5r 6r
+7r
+4r 4e 4e 4fs 4gs 4gs 5r
+5r 4r 3b 3c5 4b 4a 5r
+4r 3cs5 3e5 4cs5 3b 3a 5d5 4r 4d5
+#p78
+4d5 4fs5 4e5 4d5 3.r 2r 4r 4r 4a
+4a 4a 4b 4c5 4c5 4b 5r
+5r 5r 5r 4b 3b 3b
+4e5 4cs5 4as 3as 3b 4b 4fs 5r
+7r 7r 7r
+4.a 3a 4a 3b 3cs5 4cs5 4gs 5r
+7r 7r
+#p79
+5r 5r 5r 4ds5 3as 3as
+4as 4g 5r 6r
+4r 4b 4b 4e5 4e5 4b 4gs 4gs
+4r 3b 3cs5 4d5 3d5 3cs5 4b 4a 5r
+
+Piano RH:
+* 7+6b;7+6fs
+6b;6g;6e
+7c5;7g;7c
+7a;7d
+7+6g;7+6d;7+6b3
+6+5fs;6+5d;6+5c
+4r 4a;4d;4c 6+6g;6+6d;6+6b3
+6+7+6g;6+7+6c
+#p77
+6+7e5;6+7a;6+7e
+7d5;7a;7f
+6ds5;6a;6a3 6+7+6e5;6+7+6gs;6+7+6b3
+6e5;6a;6e
+6a;6e;6cs
+6+7+6a;6+7+6d
+#p78
+6+6a;6+6fs;6+6b3
+6g;6e;6b3
+6fs;6cs;6as3 5r * 5cs;5as3
+7fs;7b3
+7+6gs;7+6e;7+6b3
+6+6a;6+6e;6+6a3
+6+6gs;6+6cs
+6a;6fs;6cs
+6.gs;6.ds;6.bs3 5r
+#p79
+5r 5bn;5gs;5ds
+6+6as;6+6ds;6+6as3
+6gs;6ds;6b3
+7+6e;7+6b3
+6e;6cs
+6fs;6ds 5r 5r 5b;5fs;5ds
+7gs;7e;7b3
+
+Piano LH:
+7+6ds
+6+7e
+7fs
+7+6g
+6+5d
+4r 4d 6+6g2
+6+7+6e
+#p77
+6+7cs
+7d
+6fn 6+7+6e
+6c
+6g
+6+7+6fs
+#p78
+6+6ds
+6+6e
+5r 5fs
+7ds
+7e
+6d 6+6cs
+6+6es
+6+6.fs 5r
+#p79
+5r 5gs 6+6g
+6+7+6gs
+6+6a 5r 5r 5b
+7e
