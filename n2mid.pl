@@ -136,6 +136,10 @@ foreach my $data_track (@{$obj->{tracks}}) {
     
         if (defined $chord_obj->{control}) {
             my $data = $chord_obj->{control};
+	    if ($data->{type} eq "*") {
+		push @control_events, ( [ "text_event", $current_time, "cue" ] );
+		next CHORD;
+	    }
             if ($data->{type} eq "CHANGE_TEMPO" ) {
                 my $new_tempo = calculate_tempo($data->{spec});
                 push @control_events, ( [ "set_tempo", $current_time, $new_tempo ] );
@@ -243,8 +247,9 @@ foreach my $data_track (@{$obj->{tracks}}) {
 
 # compute delta times for control events;
 my $previous_control_time = 0;
+my @sorted_control_events = sort { $a->[1] <=> $b->[1] } @control_events;
 my @delta_control_events;
-foreach my $e (@control_events) {
+foreach my $e (@sorted_control_events) {
     my $t = $e->[1];
     my $dt = $t - $previous_control_time;
     $e->[1] = $dt;
