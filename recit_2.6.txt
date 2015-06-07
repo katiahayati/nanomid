@@ -1,0 +1,184 @@
+header:
+time: 4 4
+key:
+default_octaves: 4 4 4 3 4 3
+instruments: 67 66 68 68 0 0
+tempo: 5=80
+
+Grilletta:
+7r 7r 7r 7r 7r 7r 7r 7r
+#p114
+7r 7r 7r 7r 7r
+4r 4a 4bb 4c5 4c5 4f 5r
+7r 7r 7r
+#p115
+7r 7r 7r 7r 7r 7r 7r 7r
+#p116
+7r 7r 7r 7r 7r 7r 7r 7r
+#p117
+7r 7r 7r
+5r 5r 5r 4r * 3b 3e5
+4e5 4b 4.b 3b 4gs 4gs 4b 3b 3cs5
+4b 4a
+
+Volpino:
+5r 5r 4r * 4c5 3c5 3g 3g 3g
+* 4g 3g 3g 4f 4g 4f 4e 3r 3g 3g 3a
+4g 4f 5r 6r
+4r 4r 4g 3f 3e 4a 4a 4r 4r
+7r 7r 7r 7r
+#p114
+5r 4r 4a 4.a 3a 4g 4a
+4f 4f 5r 5r * 4d5 3a 3bb
+4a 4g 5r 6r
+7r 7r
+4r 4r 4r 4r 4r 4r * 4a 4bb
+5g 4r 4e5 4e5 4g 4r 4a
+4f 4f 5r 6r
+7r
+#p115
+7r 7r 7r 7r 7r
+4r 3bb 3bb 4bb 3bb 3c5 4ab 3r 3f 4ab 3ab 3g
+4f 4eb 5r 6r
+7r
+#p116
+7r 4r 4r 5r 4c5 3c5 3c5 4c5 4db5
+4c5 4bb 5r 6r
+7r 7r 7r 7r 7r
+#p117
+7r 5r 5r 5r 3r * 3b 3b 3c5
+5a
+
+Sempronio:
+7r 7r
+5r 5r 4r | 3a 3a 4a 3a 3bb 
+4a 4g | 4r 3r 3r 4r 4r 4r | 4a
+4a 4e 4r 3g 3a 4g 4f 4r 4a
+5d5 4d5 3d5 3d5 4d5 3a 3a 4a 4bb
+5c5 4r 3c5 3d5 4c5 4bb 3r 3bb 3a 3g
+4cs5 3cs5 3cs5 4cs5 3cs5 3d5 4d5 4a | 5r
+#p114
+7r 7r
+4r 4r 4r | 4d5 4bb 4bb 4bb 3c5 3d5
+4d5 4g 5r 4g 3g 3g 4g 4a
+4bb 4bb 3r 3bb 3c5 3g 4g 4a | 5r
+7r
+7r
+4r 4r 5r | 4d5 3a 3a 4bb 4c5
+4c5 4bb 3r 3cs5 3cs5 3d5 5a | 5r
+#p115
+7r
+5r 5r 5r 4r | 3g 3a
+5bb | 5r 5r 4r | 3c5 3c5
+5a 4a 4c5 4c5 4f 4r 3f 3f
+4c5 4c5 4.c5 3d5 4c5 4bb | 5r
+7r 7r 7r
+#p116
+5r 5r 5r 4r | 3c5 3eb5
+4eb5 4ab | 5r 6r
+7r 7r 7r
+| 4en5 4b 3r 3b 3a 3b 5gs 3r 3b 3b 3c5
+3d5 3d5 3d5 3d5 4e5 4b 4c5 4c5 5r
+4c5 3c5 3c5 4b 4a 4d5 4d5 4r 3d5 3d5
+#p117
+3.d5 2a 3a 3b 3c5 3c5 3c5 3b 4a 4g | 5r
+7r
+5r 5r | 4a 3a 3a 4g 4fs
+5b 4b 3a 3b 5g | 5r
+7r
+5r 4r | 4e5 4e5 4a 4.gn 3a
+4g 4fs 5r 3d5 3gs 4gs 4r 4a
+4a 4e | 5r 6r
+
+Mengone:
+7r 7r 7r 7r 7r 7r 7r 7r
+#p114
+7r 7r 7r 7r 7r 7r 7r 7r 7r 
+#p115
+5r 5f4 3d4 3d4 3eb4 3f4 4f4 4bb
+4r * 3bb 3bb 3bb 3bb 3a 3g 4c4 4c4 5r
+5r * 4bb 3c4 3g 4bb 4a 5r
+7r 7r 7r
+4r 4r 5r 4g 4g 4g 3g 3ab
+4bb 4bb 4.bb 3c4 4db4 4db4 4r * 4db4
+#p116
+4.db4 3db4 4eb4 4bb 4db4 4c4 5r
+7r
+4r 4r 4r 4bb 4.bb 3bb 4ab 4g
+4c4 4c4 4r * 3c4 3g 5ab 4r 3ab 3f
+5bn 4bn 3bn 3c4 4c4 4g 5r
+7r 7r 7r
+#p117
+7r
+4r 3b 3b 4b 3c4 3d4 4d4 4g 5r
+7r 7r 7r 7r 7r 7r
+
+Piano RH:
+5r 5bn;5g;5d 6+7c5;6+7g;6+7e
+7c5;7a;7f 7+6a;7+6g;7+6e
+6a;6f;6d
+7+6a;7+6d
+6g;6d;6bb3
+6a;6e;6cs 5r 5cs5;5a;5e
+#p114
+7+6d5;7+6a;7+6fn
+6a5;6d5;6a
+7+7g5;7+7d5;7+7bb
+6g5;6c5;6bb 6+7f5;6+7c5;6+7a
+7e5;7a;7g
+7d5;7a;7f
+5d5;5bb;5g 5cs5;5a;5e 5r 5e5;5cs5;5a
+#p115
+7+6d5;7+6bb;7+6f
+6+6c5;6+6bb;6+6g
+6+7+6c5;6+7+6a;6+7+6f
+6+7f5;6+7bb;6+7f
+7+7+6eb5;7+7+6bb;7+7+6g
+#p116
+6+7eb5;6+7c5;6+7ab
+7+6g5;7+6c5;7+6bb 6f5;6c5;6ab
+6d5;6b;6g 5r 5d5;5b;5f
+7+6b;7+6e
+6+6a;6+6e
+6+6a;6+6d
+#p117
+6+7g;6+7d;6+7b3
+7+6fs;7+6b3
+6+6g;6+6e;6+6b3
+6b;6gs;6e
+7e5;7a;7e
+6d5;6a;6fs
+5e5;5b;5gs 5r
+5r 5b;5gs;5e
+6cs5;6a;6e
+
+Piano LH:
+5r 5g 6+7c
+7f
+7+6cs
+6d
+7+6fs 6+6g 5r 5a
+#p114
+7+6d 6fs
+7+7g
+6e 6+7f
+7cs
+7d
+6g 5r 5a
+#p115
+7+6bb 6+6en
+6+7+6f
+6+7d
+7+7+6eb
+#p116
+6+7ab
+7+6e
+6+6f 5r 5g
+7+6gs 6+6a 6+6fs
+#p117
+6+7g
+7+6ds
+6+6e 6dn
+7cs
+6.d 5r
+5r 5e 6a2
