@@ -126,6 +126,8 @@ foreach my $data_track (@{$obj->{tracks}}) {
     );
 
     my $key = $header_key;
+    # line markers are all relative to the same track
+    my $in_line = 0;
     
     # within each chord, calculate absolute time for each note,
     # and then convert to delta times at the end
@@ -136,8 +138,14 @@ foreach my $data_track (@{$obj->{tracks}}) {
     
         if (defined $chord_obj->{control}) {
             my $data = $chord_obj->{control};
+	    if ($data->{type} eq '|') {
+		my $start_or_end = ($in_line) ? "end" : "start";
+		push @control_events, ( [ "text_event", $current_time, "cue_$start_or_end" ]);
+		$in_line = !$in_line;
+		next CHORD;
+	    }
 	    if ($data->{type} eq "*") {
-		push @control_events, ( [ "text_event", $current_time, "cue" ] );
+		push @control_events, ( [ "text_event", $current_time, "cue_intro" ] );
 		next CHORD;
 	    }
             if ($data->{type} eq "CHANGE_TEMPO" ) {
