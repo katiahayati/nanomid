@@ -14,7 +14,8 @@ my $note_re = qr/((\d+\.?)    # duration
 my $control_re = qr/(CHANGE_TEMPO:\d+\.?=\d+)|
                     (CHANGE_KEY:(\d[\#sb]){0,1})|
                     (CHANGE_TIMESIG:\d%\d)|
-                    \*/xi;
+                    \*|
+                    \|/xi;
 
 sub new {
     my ($class, $fn) = @_;
