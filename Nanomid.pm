@@ -13,7 +13,7 @@ use MIDI;
 
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(events tracks midi process_file);
+our @EXPORT_OK = qw(events adjust_overlapping tracks midi write_midi process_file);
 
 # divisible by 2, 3, 4, 6, 8, 12, 16, 32, 64
 my $quarter_ticks = 192;
@@ -321,6 +321,106 @@ sub process_file {
     my $midi = midi($tracks);
     
     write_midi($midi, $out_fn);
+}
+
+sub make_abs_time {
+    my (@events) = @_;
+
+    my @abs_events;
+    my $time = 0;
+    foreach my $e (@events) {
+	my @ae = @$e;
+	$time += $ae[1];
+	$ae[1] = $time;
+	push @abs_events, \@ae;
+    }
+
+    return @abs_events;
+}
+
+sub make_delta_time {
+    my (@events) = @_;
+
+    my @delta_events;
+    my $previous_time = 0;
+    foreach my $e (@events) {
+	my $t = $e->[1];
+	my $dt = $t - $previous_time;
+	my @de = @$e;
+	$de[1] = $dt;
+	push @delta_events, \@de;
+	$previous_time = $t;
+    }
+
+    return @delta_events;
+}
+   
+sub adjust_overlapping {
+    # sorted delta time
+    my ($events, $options) = @_;
+
+    my @sorted_events;
+    if ($options and $options->{need_abs}) {
+	@sorted_events = make_abs_time(@$events);
+    } else {
+	print STDERR "not adjusting\n";
+	@sorted_events = @$events;
+    }
+    
+    my @non_overlapping_events;
+    # adjust overlapping notes
+    my %active_notes;
+    my %discarded_notes;
+    my %time;
+
+    for my $e (@sorted_events) {
+	unless ($e->[0] eq "note_on" or $e->[0] eq "note_off") {
+	    push @non_overlapping_events, $e;
+	    next;
+	}
+	print STDERR Dumper(\%active_notes);
+	print STDERR Dumper(\%discarded_notes);
+	print STDERR Dumper(\%time);
+	print STDERR "Found a ", $e->[0], " for ", $e->[2], "\n";
+	my $note = $e->[3];
+	if ($e->[0] eq "note_on") {
+	    if (not defined $active_notes{$note}) {
+		$time{$note} = $e->[1];
+		$active_notes{$note}++;
+		push @non_overlapping_events, $e;
+		next;
+	    }
+	    if ($e->[1] == $time{$note}) {
+		print STDERR "discarding $note\n";
+		# two identical notes started at the same time
+		# do nothing
+		# basically discard it
+		$discarded_notes{$note}++;
+	    } else {
+		$active_notes{$note}++;
+		push @non_overlapping_events, [ 'note_off', $e->[1], $note, 127 ];
+		push @non_overlapping_events, $e;
+	    }
+	    $time{$note} = $e->[1];
+	} else {
+	    if (not defined $active_notes{$note} and not defined $discarded_notes{$note}) {
+		die "Should have a note on for every note off ", Dumper(\@sorted_events);
+	    }
+	    if (defined $discarded_notes{$note}) {
+		$discarded_notes{$note}--;
+		if ($discarded_notes{$note} == 0) {
+		    delete $discarded_notes{$note};
+		}
+	    } else {
+		$active_notes{$note}--;
+		if ($active_notes{$note} == 0) {
+		    push @non_overlapping_events, $e;
+		    delete $active_notes{$note};
+		}
+	    }
+	}
+    }
+    return make_delta_time(@non_overlapping_events);
 }
 
     
