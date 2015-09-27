@@ -2,8 +2,12 @@ use warnings;
 use strict;
 use Data::Dumper;
 use MIDI;
+use Exporter;
 
-our @EXPORT = qw(all);
+package Note;
+
+our @ISA = qw(Exporter);
+our @EXPORT = qw(get_note_in_key get_note_number);
 
 my %mods = (
  "#" => [ qw(F C G D A E) ],
