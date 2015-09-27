@@ -75,6 +75,8 @@ sub parse_file {
         my @notes;
         foreach (@lines) {
             next if (/^\s*\#/);
+	    s/^\s+//;
+	    s/\s+$//;
             my @note_specs = split /\s+/;
             foreach my $ns (@note_specs) {
                 # single note
