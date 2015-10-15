@@ -64,5 +64,5 @@ my @non_overlapping_events = adjust_overlapping(\@sorted_events, { need_abs => 0
 my $piano_track = MIDI::Track->new({ events => \@non_overlapping_events });
 push @tracks_to_keep, $piano_track;
 
-my $out_midi = midi(\@tracks_to_keep);
+my $out_midi = midi(\@tracks_to_keep, $midi->ticks);
 write_midi($out_midi, $out_fn);

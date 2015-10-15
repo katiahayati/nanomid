@@ -296,12 +296,13 @@ sub tracks {
 }
 
 sub midi {
-    my ($midi_tracks) = @_;
+    my ($midi_tracks, $ticks) = @_;
 
+    my $t = (defined $ticks) ? $ticks : $quarter_ticks;
     # format 1 MIDI file (multiple tracks)
     my $opus = MIDI::Opus->new({
 	format => 1,
-        ticks => $quarter_ticks});
+        ticks => $t});
     $opus->tracks(@$midi_tracks );
 
     return $opus;
