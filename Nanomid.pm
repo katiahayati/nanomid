@@ -392,13 +392,18 @@ sub adjust_overlapping {
 		push @non_overlapping_events, $e;
 		next;
 	    }
+
+	    # now we know there is an active note of the same value
+	    # so this note is already "currently playing"
+
+	    # did the currently playing note start at the same time as this present note? 
 	    if ($e->[1] == $time{$note}) {
 		print STDERR "discarding $note\n";
-		# two identical notes started at the same time
-		# do nothing
-		# basically discard it
+		# this present note is redundant, get rid of it
 		$discarded_notes{$note}++;
 	    } else {
+		# end the currently playing note, and start a new note of the same value at this current time
+		# we need to remember we need that, to adjust the note_off's later
 		$active_notes{$note}++;
 		push @non_overlapping_events, [ 'note_off', $e->[1], $note, 127 ];
 		push @non_overlapping_events, $e;
@@ -409,13 +414,16 @@ sub adjust_overlapping {
 		die "Should have a note on for every note off ", Dumper(\@sorted_events);
 	    }
 	    if (defined $discarded_notes{$note}) {
+		# this is a note_off for a note we discarded, so do nothing
 		$discarded_notes{$note}--;
 		if ($discarded_notes{$note} == 0) {
 		    delete $discarded_notes{$note};
 		}
 	    } else {
+		# this is a note_off for a note that we might have ended prematurely already, so check if we need this note_off
 		$active_notes{$note}--;
 		if ($active_notes{$note} == 0) {
+		    # we need the note_off, and this note is no longer playing
 		    push @non_overlapping_events, $e;
 		    delete $active_notes{$note};
 		}
