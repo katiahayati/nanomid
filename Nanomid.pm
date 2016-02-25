@@ -13,7 +13,7 @@ use MIDI;
 
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(events adjust_overlapping tracks midi write_midi process_file);
+our @EXPORT_OK = qw(events adjust_overlapping tracks midi write_midi process_file make_abs_time make_delta_time);
 
 # divisible by 2, 3, 4, 6, 8, 12, 16, 32, 64
 my $quarter_ticks = 192;
