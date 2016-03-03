@@ -83,14 +83,38 @@ while ($start < @time_signature_times and $end < @time_signature_times) {
 
 my $desired_start_time = $measure_ticks[$from_measure - 1];
 # we want to end at the start time of the next measure so we get the full last measure
-my $desired_end_time = (defined $to_measure and $to_measure < @measure_ticks) ? $measure_ticks[$to_measure - 1 + 1] : $max_time + 1; 
-print STDERR join " ", ($from_measure, $to_measure, $desired_start_time, $desired_end_time, $measure_ticks[$to_measure-1], "\n");
+my $desired_end_time = (defined $to_measure and $to_measure < @measure_ticks) ? $measure_ticks[$to_measure - 1 + 1] : $max_time + 1;
+#print STDERR join " ", ($from_measure, $to_measure, $desired_start_time, $desired_end_time, $measure_ticks[$to_measure-1], "\n");
+
+# ok this is great but what about control events?
 
 my @new_tracks;
 foreach my $track (@tracks) {
     my @events = make_abs_time($track->events);
+
+    # get the last non-note event of each type that happened before $desired_start_time
+    # should be a no-op for desired start time 0
+    my %control_events;
+    foreach my $e (@events) {
+	last if ($e->[1] >= $desired_start_time);
+	next if ($e->[0] =~ /note_/);
+	$control_events{$e->[0]} = $e;
+    }
+#    print STDERR "Added ", scalar keys %control_events, " events\n";
+
+    # adjust absolute time of events so $desired_start_time maps to 0
     @events = map { $_->[1] = $_->[1] - $desired_start_time; $_ } grep { $_->[1] >= $desired_start_time and $_->[1] < $desired_end_time } @events;
-    print STDERR Dumper(\@events);
+
+    # add back in the control events
+    foreach my $event_type (keys %control_events) {
+	my $e = $control_events{$event_type};
+	# set them all to happen at time 0
+	$e->[1] = 0;
+	unshift @events, $e;
+    }
+
+#    print STDERR Dumper(\@events);
+
     my @new_events = make_delta_time(@events);
     my $track = MIDI::Track->new({ events => \@new_events });
     push @new_tracks, $track;
