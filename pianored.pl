@@ -11,7 +11,6 @@ my %EVENTS_TO_DROP = (
 
 my $fn = shift @ARGV or die "Usage: $0 <input file> <output file> <tracks to not reduce>";
 my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file> <tracks to not reduce>";
-print STDERR $out_fn, "\n";
 my %except = map { $_ => 1 } @ARGV;
 
 my $midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
@@ -25,7 +24,9 @@ push @new_events, (
     );
 
 my @tracks_to_keep;
+my $track_num = -1;
 foreach my $track (@tracks) {
+    $track_num++;
     my @events = $track->events;
     my $track_name;
     for my $e (@events) {
@@ -34,7 +35,7 @@ foreach my $track (@tracks) {
 	    last;
 	}
     }
-    if (not $track_name or defined $except{$track_name}) {
+    if (not $track_name or defined $except{$track_name} or defined $except{$track_num}) {
 	print STDERR "keeping $track_name\n";
 	push @tracks_to_keep, $track;
     } else {

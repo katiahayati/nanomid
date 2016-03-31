@@ -52,8 +52,8 @@ push @time_signature_times, $max_time;
 # now there are at least 2 time signatures in the array
 
 
-print STDERR Dumper(@time_signature_events);
-print STDERR $ticks_per_quarter, "\n";
+#print STDERR Dumper(@time_signature_events);
+#print STDERR $ticks_per_quarter, "\n";
 
 my @measure_ticks;
 my $start = 0; my $end = 1;
