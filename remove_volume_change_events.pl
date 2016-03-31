@@ -1,15 +1,25 @@
 use warnings;
 use strict;
 
-use Nanomid qw(tracks midi write_midi);
+use Getopt::Long;
+use Nanomid qw(tracks midi read_midi write_midi);
 
+my $fn;
+my $out_fn;
 
-my $fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
-my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file>";
-my @events_to_remove = @ARGV;
+sub usage {
+    print "Usage: $0 [--input|-i input_file] [--output -o output_file]\n";
+    exit;
+}
 
+GetOptions(
+    "input|i=s" => \$fn,
+    "output|o=s" => \$out_fn
+);
 
-my $midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+my $midi = read_midi($fn);
+
+print STDERR $0, "\n";
 
 my @tracks = $midi->tracks;
 my $ticks = $midi->ticks;

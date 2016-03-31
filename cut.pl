@@ -1,24 +1,35 @@
 use warnings;
 use strict;
 use Data::Dumper;
-use MIDI;
-use Nanomid qw(make_abs_time make_delta_time midi write_midi);
+
+use Getopt::Long;
+use Nanomid qw(make_abs_time make_delta_time midi read_midi write_midi);
 
 my %EVENTS_TO_DROP = (
     patch_change => 1,
     track_name => 1,
     );
 
-my $usage = "Usage: $0 <input file> <output file> <from_measure> [to_measure]";
+sub usage {
+    print "Usage: $0 [--input|-i <input file>] [--output|-o <output file>] <from_measure> [to_measure]\n";
+    exit;
+}
 
-my $fn = shift @ARGV or die $usage;
-my $out_fn = shift @ARGV or die $usage;
-my $from_measure = shift @ARGV or die $usage;
+my $fn; my $out_fn;
+GetOptions("input|i=s" => \$fn,
+	   "output|o=s" => \$out_fn,
+	   "help|h=s" => \&usage,
+    );
+
+my $from_measure = shift @ARGV or usage();
 my $to_measure = shift @ARGV;
 
-die $usage if ($from_measure < 1);
+usage() if ($from_measure < 1);
 
-my $midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+my $midi = read_midi($fn);
+
+print STDERR $0, "\n";
+
 my $ticks_per_quarter = $midi->ticks;
 
 my @tracks = $midi->tracks;

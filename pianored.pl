@@ -1,19 +1,31 @@
 use warnings;
 use strict;
 use Data::Dumper;
-use MIDI;
-use Nanomid qw(adjust_overlapping midi write_midi);
+use Getopt::Long;
+
+use Nanomid qw(adjust_overlapping midi read_midi write_midi);
 
 my %EVENTS_TO_DROP = (
     patch_change => 1,
     track_name => 1,
     );
 
-my $fn = shift @ARGV or die "Usage: $0 <input file> <output file> <tracks to not reduce>";
-my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file> <tracks to not reduce>";
+sub usage {
+    print "Usage: $0 <input file> <output file> <tracks to not reduce>";
+    exit;
+}
+
+my $fn; my $out_fn;
+GetOptions("input|i=s" => \$fn,
+	   "output|o=s" => \$out_fn,
+	   "help|h=s" => \&usage,
+    );
+
 my %except = map { $_ => 1 } @ARGV;
 
-my $midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+my $midi = read_midi($fn);
+
+print STDERR $0, "\n";
 
 my @tracks = $midi->tracks;
 
@@ -36,10 +48,10 @@ foreach my $track (@tracks) {
 	}
     }
     if (not $track_name or defined $except{$track_name} or defined $except{$track_num}) {
-	print STDERR "keeping $track_name\n";
+#	print STDERR "keeping $track_name\n";
 	push @tracks_to_keep, $track;
     } else {
-	print STDERR "Reducing $track_name\n";
+#	print STDERR "Reducing $track_name\n";
 	my $t = 0;
 	for my $e (@events) {
 	    $t += $e->[1];
@@ -48,7 +60,7 @@ foreach my $track (@tracks) {
 	    if (($e->[0] eq "note_on") and ($e->[-1] == 0)) {
 		$e->[0] = "note_off";
 		$e->[-1] = 127;
-		print STDERR "Added a note off\n";
+#		print STDERR "Added a note off\n";
 	    }
 	}
 	push @new_events, grep { not defined $EVENTS_TO_DROP{$_->[0]} } @events;
@@ -57,7 +69,7 @@ foreach my $track (@tracks) {
 }
 
 my @sorted_events = sort { $a->[1] <=> $b->[1] || $a->[0] cmp $b->[0] } @new_events;
-print STDERR Dumper(\@sorted_events);
+#print STDERR Dumper(\@sorted_events);
 
 my @non_overlapping_events = adjust_overlapping(\@sorted_events, { need_abs => 0, sort => 0 });
 

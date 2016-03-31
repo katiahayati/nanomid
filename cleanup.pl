@@ -1,17 +1,28 @@
 use warnings;
 use strict;
 
-use Nanomid qw(tracks midi write_midi);
+use Getopt::Long;
+use Nanomid qw(tracks midi read_midi write_midi);
 
+sub usage {
+    print "Usage: $0 [--input|-i <input file>] [--output|-o <output file>] 'event1,after_n' [event2,after_n] ...\n";
+    exit;
+}
 
-my $fn = shift @ARGV or die "Usage: $0 <input file> <output file> <events to remove>";
-my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file> <events to remove>";
+my $fn; my $out_fn;
+GetOptions("input|i=s" => \$fn,
+	   "output|o=s" => \$out_fn,
+	   "help|h" => \&usage,
+    );
+
 my @events_to_remove = @ARGV;
 
 my %bad = map { my ($e, $c) = split /\,/; $e => ($c || 0) } @events_to_remove;
 my %counts;
 
-my $midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+my $midi = read_midi($fn);
+
+print STDERR $0, "\n";
 
 my @tracks = $midi->tracks;
 my $ticks = $midi->ticks;

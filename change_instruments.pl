@@ -2,19 +2,28 @@ use warnings;
 use strict;
 use Data::Dumper;
 use MIDI;
-use Nanomid qw(adjust_overlapping midi write_midi);
+use Getopt::Long;
+use Nanomid qw(adjust_overlapping midi write_midi read_midi);
 
 my %EVENTS_TO_DROP = (
     patch_change => 1,
     track_name => 1,
     );
 
-my $fn = shift @ARGV or die "Usage: $0 <input file> <output file> <track 1|new instrument> [track2|new instrument] ...";
-my $out_fn = shift @ARGV or die "Usage: $0 <input file> <output file> <track 1|new instrument> [track2|new instrument] ...";
+my $fn;
+my $out_fn;
+my $usage = "Usage: $0 [--input|-i <input file>] [--output|-o <output file>] <track 1|new instrument> [track2|new instrument] ...";
+
+GetOptions("input|i=s" => \$fn,
+	   "output|o=s" => \$out_fn,
+	   "help|h" => sub { die $usage },
+    );
 
 my %instruments = map { my ($name, $inst) = split /\|/; $name => $inst } @ARGV;
 
-my $midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+my $midi = read_midi($fn);
+
+print STDERR $0, "\n";
 
 my @tracks = $midi->tracks;
 

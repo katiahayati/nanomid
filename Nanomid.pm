@@ -13,7 +13,7 @@ use MIDI;
 
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(events adjust_overlapping tracks midi write_midi process_file make_abs_time make_delta_time);
+our @EXPORT_OK = qw(events adjust_overlapping tracks midi read_midi write_midi process_file make_abs_time make_delta_time);
 
 # divisible by 2, 3, 4, 6, 8, 12, 16, 32, 64
 my $quarter_ticks = 192;
@@ -309,10 +309,27 @@ sub midi {
     return $opus;
 }
 
+sub read_midi {
+    my ($fn) = @_;
+
+    my $midi;
+    if (defined $fn) {
+	$midi = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+    } else {
+	$midi = MIDI::Opus->new({ 'from_handle' => *STDIN, 'no_parse' => 0 });
+    }
+
+    return $midi;
+}
+
 sub write_midi {
     my ($midi, $out_fn) = @_;
-    $midi->write_to_file($out_fn);
 
+    if (defined $out_fn) {
+	$midi->write_to_file($out_fn);
+    } else {
+	$midi->write_to_handle(*STDOUT);
+    }
 }
 
 sub process_file {
@@ -365,7 +382,7 @@ sub adjust_overlapping {
     if ($options and $options->{need_abs}) {
 	@sorted_events = make_abs_time(@$events);
     } else {
-	print STDERR "not adjusting\n";
+#	print STDERR "not adjusting\n";
 	@sorted_events = @$events;
     }
     
@@ -380,10 +397,10 @@ sub adjust_overlapping {
 	    push @non_overlapping_events, $e;
 	    next;
 	}
-	print STDERR Dumper(\%active_notes);
-	print STDERR Dumper(\%discarded_notes);
-	print STDERR Dumper(\%time);
-	print STDERR "Found a ", $e->[0], " for ", $e->[2], "\n";
+#	print STDERR Dumper(\%active_notes);
+#	print STDERR Dumper(\%discarded_notes);
+#	print STDERR Dumper(\%time);
+#	print STDERR "Found a ", $e->[0], " for ", $e->[2], "\n";
 	my $note = $e->[3];
 	if ($e->[0] eq "note_on") {
 	    if (not defined $active_notes{$note}) {
@@ -398,7 +415,7 @@ sub adjust_overlapping {
 
 	    # did the currently playing note start at the same time as this present note? 
 	    if ($e->[1] == $time{$note}) {
-		print STDERR "discarding $note\n";
+#		print STDERR "discarding $note\n";
 		# this present note is redundant, get rid of it
 		$discarded_notes{$note}++;
 	    } else {

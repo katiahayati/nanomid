@@ -1,9 +1,23 @@
 use warnings;
 use strict;
 use Data::Dumper;
+use Nanomid qw(read_midi);
+use Getopt::Long;
 use MIDI;
 
-my $fn = shift @ARGV or die "Usage: $0 <input file>";
-my $obj = MIDI::Opus->new({ 'from_file' => $fn, 'no_parse' => 0 });
+sub usage {
+    print "Usage: $0 [--input|-i input_file]\n";
+    exit;
+}
+
+my $fn;
+GetOptions("input|i=s" => \$fn,
+	   "help|h" => \&usage,
+    );
+
+my $obj = read_midi($fn);
+
+print STDERR $0, "\n";
+
 print Dumper($obj);
 
