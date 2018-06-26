@@ -40,6 +40,10 @@ my %duration_to_mult = (
     66 => 1/6,
     99 => 1/12,
     55 => 2/3,
+
+    #quintuplet
+    15 => 1/5,
+    
     );
 
 sub calculate_key {

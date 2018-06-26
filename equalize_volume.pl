@@ -6,7 +6,7 @@ use Getopt::Long;
 use Nanomid qw(adjust_overlapping midi read_midi write_midi);
 
 sub usage {
-    print "Usage: $0 [--input|-i <input file>] [--output|o <output file>] <track 1|new volume> [track2|new volume] ...";
+    print "Usage: $0 [--input|-i <input file>] [--output|o <output file>] <new_volume>";
     exit;
 }
 
@@ -16,7 +16,7 @@ GetOptions("input|i=s" => \$fn,
 	   "help|h=s" => \&usage,
     );
 
-my %volumes = map { my ($name, $vol) = split /\|/; $name => $vol } @ARGV;
+my $new_volume = shift @ARGV or die usage();
 
 my $midi = read_midi($fn);
 
@@ -27,18 +27,9 @@ my @tracks = $midi->tracks;
 my @tracks_to_keep;
 foreach my $track (@tracks) {
     my @events = $track->events;
-    my $new_vol;
   EVENTS: for my $e (@events) {
-      if ($e->[0] eq "track_name") {
-	  my $track_name = $e->[2];
-	  if (defined ($volumes{$track_name})) {
-	      $new_vol = $volumes{$track_name};
-	  } else {
-	      last EVENTS;
-	  }
-      }
       if ($e->[0] eq "note_on" and $e->[4] != 0) {
-	  $e->[4] = $new_vol;
+	  $e->[4] = $new_volume;
       }
   }
     $track->events(@events);

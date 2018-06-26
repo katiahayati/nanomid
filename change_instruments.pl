@@ -28,38 +28,46 @@ print STDERR $0, "\n";
 my @tracks = $midi->tracks;
 
 my @tracks_to_keep;
-TRACK: foreach my $track (@tracks) {
+my $track_num = -1;
+ TRACK: foreach my $track (@tracks) {
+     $track_num++;
     my @events = $track->events;
     my $new_inst;
-    if (! grep { $_->[0] eq "track_name" } @events) {
-	push @tracks_to_keep, $track;
-	next TRACK;
-    }
+
+     if (defined $instruments{$track_num}) {
+	 $new_inst = $instruments{$track_num};
+     }
     # need to loop through all events twice if this is a track to change, because
     # the patch_change can occur before the track_name
-  EVENTS: for my $e (@events) {
-      if ($e->[0] eq "track_name") {
-	  my $track_name = $e->[2];
-	  if (not defined ($instruments{$track_name})) {
-	      push @tracks_to_keep, $track;
-	      next TRACK;
-	  } else {
-	      $new_inst = $instruments{$track_name};
-	  }
-      }
-  }
-    if (defined $new_inst) {
-	for my $e (@events) {
-	    if ($e->[0] eq "patch_change") {
-		print STDERR "Making the change\n";
-		$e->[3] = $new_inst;
-		$track->events(@events);
-		push @tracks_to_keep, $track;
-		next TRACK;
-	    }
-	}
-    }
+     if (not defined $new_inst) {
+       EVENTS: for my $e (@events) {
+	   if ($e->[0] eq "track_name") {
+	       my $track_name = $e->[2];
+	       if (not defined ($instruments{$track_name})) {
+		   push @tracks_to_keep, $track;
+		   next TRACK;
+	       } else {
+		   $new_inst = $instruments{$track_name};
+	       }
+	   }
+       }
+     }
+     if (defined $new_inst) {
+	 CHANGE_LOOP: for my $e (@events) {
+	     if ($e->[0] eq "patch_change") {
+		 print STDERR "Making the change\n";
+		 $e->[3] = $new_inst;
+		 last CHANGE_LOOP;
+	     }
+	 }
+     }
+     $track->events(@events);
+     push @tracks_to_keep, $track;
+     next TRACK;
+
+	 
 }
+
 
 
 my $out_midi = midi(\@tracks_to_keep, $midi->ticks);

@@ -18,7 +18,7 @@ sub usage {
 my $fn; my $out_fn;
 GetOptions("input|i=s" => \$fn,
 	   "output|o=s" => \$out_fn,
-	   "help|h=s" => \&usage,
+	   "help|h" => \&usage,
     );
 
 my %except = map { $_ => 1 } @ARGV;

@@ -24,15 +24,19 @@ print STDERR $0, "\n";
 
 my @tracks = $midi->tracks;
 
+my $track_num = -1;
 my @tracks_to_keep;
 foreach my $track (@tracks) {
-    my @events = $track->events;
+    $track_num++;
+    my @events = $track->events; 
   EVENTS: for my $e (@events) {
       if ($e->[0] eq "track_name") {
 	  my $track_name = $e->[2];
-	  if (defined ($names{$track_name})) {
-	      $e->[2] = $names{$track_name};
+	  if (defined ($names{$track_name}) or defined ($names{$track_num})) {
+	      my $new_name = (defined $names{$track_name}) ? $names{$track_name} : $names{$track_num};
+		  $e->[2] = $new_name;
 	  }
+	  
 	  $track->events(@events);
 	  last EVENTS;
       }
